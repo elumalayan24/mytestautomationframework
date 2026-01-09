@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="MyTestAutomation Suite" parallel="tests" thread-count="3">
+    
+    <!-- Default test configuration that will be inherited by all test tags -->
+    <test name="Chrome Tests" parallel="methods" thread-count="3">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.myautomation.tests.SampleTest"/>
+            <!-- Add more test classes here as needed -->
+        </classes>
+    </test>
+    
+    <!-- Example of another test configuration for a different browser -->
+    <test name="Firefox Tests" parallel="methods" thread-count="3">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="com.myautomation.tests.SampleTest"/>
+            <!-- Add more test classes here as needed -->
+        </classes>
+    </test>
+    
+    <!-- Example of including specific test groups -->
+    <test name="Smoke Tests">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.myautomation.tests.SampleTest"/>
+            <!-- Add more test classes here as needed -->
+        </classes>
+    </test>
+    
+    <!-- Example of excluding specific test methods -->
+    <test name="Regression Tests">
+        <groups>
+            <run>
+                <exclude name="wip"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.myautomation.tests.SampleTest">
+                <methods>
+                    <exclude name="testApplicationLoad"/>
+                </methods>
+            </class>
+            <!-- Add more test classes here as needed -->
+        </classes>
+    </test>
+    
+    <!-- Example of including tests from a package -->
+    <test name="Package Level Tests">
+        <packages>
+            <package name="com.myautomation.tests"/>
+        </packages>
+    </test>
+    
+    <!-- Example of parameterized tests -->
+    <test name="Parameterized Tests">
+        <parameter name="environment" value="staging"/>
+        <parameter name="username" value="testuser"/>
+        <parameter name="password" value="testpass"/>
+        <classes>
+            <class name="com.myautomation.tests.SampleTest"/>
+            <!-- Add more test classes here as needed -->
+        </classes>
+    </test>
+    
+</suite>

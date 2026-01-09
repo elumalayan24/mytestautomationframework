@@ -1,0 +1,4 @@
+main\java\com\myautomation\session\Session.class
+main\java\com\myautomation\session\SessionManager.class
+main\java\com\myautomation\session\DefaultSession.class
+main\java\com\myautomation\session\SessionManager$DefaultSession.class
