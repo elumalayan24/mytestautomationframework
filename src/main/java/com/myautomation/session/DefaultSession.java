@@ -1,4 +1,4 @@
-package main.java.com.myautomation.session;
+package com.myautomation.session;
 
 import com.myautomation.session.Session;
 
