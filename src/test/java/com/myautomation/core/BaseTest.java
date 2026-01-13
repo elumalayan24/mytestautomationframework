@@ -1,53 +1,72 @@
 package com.myautomation.core;
 
+import com.myautomation.config.ConfigManager;
+import com.myautomation.utils.ActionUtils;
+import com.myautomation.utils.HtmlReportManager;
 import com.microsoft.playwright.*;
-import com.myautomation.utils.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
+import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.Duration;
 import java.util.Properties;
+import java.lang.reflect.Method;
+import java.time.Duration;
 
 /**
- * Base test class that provides common setup, teardown, and utility methods
- * for all test classes in the framework.
+ * Base test class that provides common setup and teardown methods for all tests.
  */
 public class BaseTest {
     protected static final Logger logger = LoggerFactory.getLogger(BaseTest.class);
-    protected static final Properties config = loadConfig();
-    
-    // WebDriver and Playwright instances
     protected WebDriver driver;
+    protected WebDriverWait wait;
+    protected static final String BASE_URL = ConfigManager.getProperty("base.url");
+    private static final boolean HEADLESS = Boolean.parseBoolean(ConfigManager.getProperty("headless", "false"));
+    private static final String BROWSER_TYPE = ConfigManager.getProperty("browser.type", "chrome");
+    
+    // Playwright related fields
     protected Playwright playwright;
     protected Browser browser;
-    protected BrowserContext browserContext;
     protected Page page;
+    protected BrowserContext context;
+    protected BrowserContext browserContext;
     
-    // Configuration constants
-    protected static final String BASE_URL = config.getProperty("base.url", "https://example.com");
-    protected static final boolean HEADLESS = Boolean.parseBoolean(config.getProperty("headless", "true"));
-    protected static final String BROWSER_TYPE = config.getProperty("browser.type", "chrome");
-    protected static final String ENVIRONMENT = config.getProperty("environment", "staging");
+    // Log capture and output redirection fields
+    private ByteArrayOutputStream logCapture;
+    private PrintStream originalOut;
+    private PrintStream originalErr;
+    
+    // Configuration
+    protected static final Properties config = loadConfig();
     
     @BeforeSuite
     public void beforeSuite() {
-        logger.info("=== Starting Test Suite ===");
-        logger.info("Environment: {}", ENVIRONMENT);
-        logger.info("Base URL: {}", BASE_URL);
+        logger.info("=== Test Suite Started ===");
     }
     
     @BeforeMethod
-    public void setup(ITestResult result) {
-        String testName = result.getMethod().getMethodName();
+    public void setup(Method method) {
+        String testName = method.getName();
         logger.info("=== Starting Test: {} ===", testName);
+        
+        // Redirect System.out and System.err to capture logs
+        logCapture = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(logCapture);
+        originalOut = System.out;
+        originalErr = System.err;
+        System.setOut(printStream);
+        System.setErr(printStream);
         
         // Initialize the appropriate browser based on configuration
         if (config.getProperty("automation.type", "selenium").equalsIgnoreCase("playwright")) {
@@ -60,6 +79,20 @@ public class BaseTest {
     @AfterMethod
     public void teardown(ITestResult result) {
         String testName = result.getMethod().getMethodName();
+        String screenshotPath = null;
+        
+        // Restore original System.out and System.err
+        String logs = "";
+        if (logCapture != null) {
+            logs = logCapture.toString();
+            System.setOut(originalOut);
+            System.setErr(originalErr);
+            try {
+                logCapture.close();
+            } catch (IOException e) {
+                logger.error("Failed to close log capture stream: {}", e.getMessage());
+            }
+        }
         
         // Take screenshot on test failure
         if (result.getStatus() == ITestResult.FAILURE) {
@@ -68,14 +101,25 @@ public class BaseTest {
             
             try {
                 if (page != null) {
-                    ActionUtils.takeScreenshot(page, screenshotName);
+                    screenshotPath = ActionUtils.takeScreenshot(page, screenshotName);
                 } else if (driver != null) {
-                    ActionUtils.takeScreenshot(driver, screenshotName);
+                    screenshotPath = ActionUtils.takeScreenshot(driver, screenshotName);
+                }
+                
+                // If screenshot was taken, copy it to the report directory
+                if (screenshotPath != null && Files.exists(Paths.get(screenshotPath))) {
+                    String destPath = HtmlReportManager.REPORT_DIR + "/screenshots/" + new File(screenshotPath).getName();
+                    Files.copy(Paths.get(screenshotPath), Paths.get(destPath), 
+                             java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+                    screenshotPath = destPath;
                 }
             } catch (Exception e) {
-                logger.error("Failed to capture screenshot: {}", e.getMessage());
+                logger.error("Failed to capture or copy screenshot: {}", e.getMessage());
             }
         }
+        
+        // Log test results to HTML report
+        HtmlReportManager.logTest(result, screenshotPath, logs);
         
         // Close browser and cleanup
         cleanup();
@@ -84,6 +128,8 @@ public class BaseTest {
     
     @AfterSuite
     public void afterSuite() {
+        // Generate the HTML report
+        HtmlReportManager.generateReport();
         logger.info("=== Test Suite Completed ===");
     }
     
@@ -104,15 +150,26 @@ public class BaseTest {
     
     private void initializePlaywright() {
         logger.info("Initializing Playwright");
-        playwright = Playwright.create();
-        
-        // Create browser instance based on configuration
-        BrowserType browserType = getBrowserType();
-        browser = browserType.launch(new BrowserType.LaunchOptions()
-                .setHeadless(HEADLESS)
-                .setSlowMo(100)  // Slow down execution for better visibility
-        );
-        
+        try {
+            playwright = Playwright.create();
+            
+            // Create browser instance based on configuration
+            BrowserType browserType = getBrowserType();
+            browser = browserType.launch(new BrowserType.LaunchOptions()
+                    .setHeadless(HEADLESS)
+                    .setSlowMo(100)  // Slow down execution for better visibility
+            );
+            
+            // Create a new browser context and page
+            context = browser.newContext();
+            page = context.newPage();
+            
+            logger.info("Navigating to: {}", BASE_URL);
+            page.navigate(BASE_URL);
+        } catch (Exception e) {
+            logger.error("Failed to initialize Playwright", e);
+            throw new RuntimeException("Failed to initialize Playwright", e);
+        }
         // Create a new browser context
         browserContext = browser.newContext(new Browser.NewContextOptions()
                 .setViewportSize(1920, 1080)

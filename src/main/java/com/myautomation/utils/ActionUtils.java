@@ -12,7 +12,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
@@ -23,6 +31,7 @@ public final class ActionUtils {
     private static final Logger logger = LoggerFactory.getLogger(ActionUtils.class);
     private static final Duration DEFAULT_TIMEOUT = Duration.ofSeconds(10);
     private static final Duration POLLING_INTERVAL = Duration.ofMillis(500);
+    private static final String SCREENSHOTS_DIR = "test-output/screenshots";
 
     private ActionUtils() {
         // Private constructor to prevent instantiation
@@ -210,31 +219,101 @@ public final class ActionUtils {
     // ==================== COMMON UTILITIES ====================
 
     /**
-     * Take a screenshot and save it to the specified path
+     * Take a screenshot and save it to the screenshots directory
+     * @param driver WebDriver instance
+     * @param testName Name of the test for the screenshot file
+     * @return Path to the saved screenshot file, or null if failed
+     */
+    /**
+     * Take a screenshot and save it to the screenshots directory
+     * @param driver WebDriver instance
+     * @param testName Name of the test for the screenshot file
+     * @return Path to the saved screenshot file, or null if failed
      */
     public static String takeScreenshot(WebDriver driver, String testName) {
         return AutomationExceptionHandler.executeSeleniumAction(
             () -> {
-                TakesScreenshot ts = (TakesScreenshot) driver;
-                String screenshot = ts.getScreenshotAs(OutputType.BASE64);
-                // TODO: Save the screenshot to a file if needed
-                return screenshot;
+                try {
+                    // Ensure screenshots directory exists
+                    Path screenshotDir = Paths.get(SCREENSHOTS_DIR);
+                    if (!Files.exists(screenshotDir)) {
+                        try {
+                            Files.createDirectories(screenshotDir);
+                            logger.debug("Created screenshots directory: {}", screenshotDir.toAbsolutePath());
+                        } catch (IOException e) {
+                            logger.error("Failed to create screenshots directory: {}", SCREENSHOTS_DIR, e);
+                            throw new RuntimeException("Failed to create screenshots directory: " + SCREENSHOTS_DIR, e);
+                        }
+                    }
+                    
+                    // Generate filename with timestamp
+                    String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss_SSS"));
+                    String safeTestName = testName.replaceAll("[^a-zA-Z0-9-_.]", "_");
+                    String fileName = String.format("%s_%s.png", safeTestName, timestamp);
+                    Path filePath = screenshotDir.resolve(fileName);
+                    
+                    // Take screenshot
+                    File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                    
+                    // Save to file
+                    try {
+                        Files.copy(screenshotFile.toPath(), filePath, StandardCopyOption.REPLACE_EXISTING);
+                        logger.info("Screenshot saved to: {}", filePath.toAbsolutePath());
+                        return filePath.toString();
+                    } catch (IOException e) {
+                        logger.error("Failed to save screenshot to: {}", filePath, e);
+                        throw new RuntimeException("Failed to save screenshot to: " + filePath, e);
+                    }
+                } catch (Exception e) {
+                    logger.error("Unexpected error while taking screenshot", e);
+                    throw e;
+                }
             },
             "taking screenshot for test: " + testName
         );
     }
 
     /**
-     * Take a screenshot using Playwright and save it to the specified path
+     * Take a screenshot using Playwright and save it to the screenshots directory
+     * @param page Playwright Page instance
+     * @param testName Name of the test for the screenshot file
+     * @return Path to the saved screenshot file, or null if failed
      */
-    public static byte[] takeScreenshot(Page page, String testName) {
-        return AutomationExceptionHandler.executePlaywrightAction(
-            () -> page.screenshot(new Page.ScreenshotOptions()
+    public static String takeScreenshot(Page page, String testName) {
+        try {
+            // Ensure screenshots directory exists
+            Path screenshotDir = Paths.get(SCREENSHOTS_DIR);
+            if (!Files.exists(screenshotDir)) {
+                try {
+                    Files.createDirectories(screenshotDir);
+                    logger.info("Created screenshots directory at: {}", screenshotDir.toAbsolutePath());
+                } catch (IOException e) {
+                    logger.error("Failed to create screenshots directory: {}", e.getMessage());
+                    // Try to use system temp directory as fallback
+                    screenshotDir = Paths.get(System.getProperty("java.io.tmpdir"), "screenshots");
+                    Files.createDirectories(screenshotDir);
+                    logger.warn("Using fallback screenshots directory: {}", screenshotDir.toAbsolutePath());
+                }
+            }
+            
+            // Generate filename with timestamp
+            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss_SSS"));
+            String safeTestName = testName.replaceAll("[^a-zA-Z0-9-_.]", "_");
+            String fileName = String.format("%s_%s.png", safeTestName, timestamp);
+            Path filePath = screenshotDir.resolve(fileName);
+            
+            // Take and save screenshot
+            page.screenshot(new Page.ScreenshotOptions()
                 .setFullPage(true)
-                .setPath(java.nio.file.Path.of("screenshots/" + testName + ".png"))
-            ),
-            "taking screenshot for test: " + testName
-        );
+                .setPath(filePath)
+            );
+            
+            logger.info("Screenshot saved to: {}", filePath.toAbsolutePath());
+            return filePath.toString();
+        } catch (Exception e) {
+            logger.error("Failed to take screenshot: {}", e.getMessage());
+            return null;
+        }
     }
 
     /**

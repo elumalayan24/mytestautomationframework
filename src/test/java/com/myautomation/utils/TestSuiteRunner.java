@@ -6,10 +6,13 @@ import org.testng.xml.XmlPackage;
 import org.testng.xml.XmlSuite;
 import org.testng.xml.XmlTest;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+
 
 public class TestSuiteRunner {
 
@@ -49,24 +52,54 @@ public class TestSuiteRunner {
     }
 
     private static int runCucumber(List<String> features, List<String> glue, String tags) {
-        List<String> cucumberArgs = new ArrayList<>();
-
-        cucumberArgs.addAll(features);
-        for (String g : glue) {
-            cucumberArgs.add("--glue");
-            cucumberArgs.add(g);
+        // Create output directory if it doesn't exist
+        File reportDir = new File("target/cucumber-reports");
+        if (!reportDir.exists()) {
+            reportDir.mkdirs();
         }
+
+        // Configure Cucumber options
+        List<String> cucumberOptions = new ArrayList<>();
+
+        // Add glue packages
+        if (!glue.isEmpty()) {
+            cucumberOptions.add("--glue");
+            cucumberOptions.add(String.join(",", glue));
+        }
+        
         if (tags != null && !tags.isBlank()) {
-            cucumberArgs.add("--tags");
-            cucumberArgs.add(tags);
+            cucumberOptions.add("--tags");
+            cucumberOptions.add(tags);
         }
-        cucumberArgs.add("--plugin");
-        cucumberArgs.add("pretty");
-
-        return io.cucumber.core.cli.Main.run(
-                cucumberArgs.toArray(new String[0]),
+        
+        // Add ExtentReports plugin
+        cucumberOptions.add("--plugin");
+        cucumberOptions.add("com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:");
+        
+        // Add other useful plugins
+        cucumberOptions.add("--plugin");
+        cucumberOptions.add("pretty");
+        cucumberOptions.add("--plugin");
+        cucumberOptions.add("html:test-output/cucumber-reports.html");
+        cucumberOptions.add("--plugin");
+        cucumberOptions.add("json:test-output/cucumber.json");
+        cucumberOptions.add("--plugin");
+        cucumberOptions.add("junit:test-output/junit-report.xml");
+        
+        System.out.println("\n[INFO] Starting Cucumber Tests...");
+        int exitStatus = io.cucumber.core.cli.Main.run(
+                cucumberOptions.toArray(new String[0]),
                 Thread.currentThread().getContextClassLoader()
         );
+        
+        // Log the report location
+        String extentReportPath = System.getProperty("user.dir") + "/test-output/ExtentReport.html";
+        System.out.println("\n[INFO] Test execution completed!");
+        System.out.println("[INFO] Extent Report: " + new java.io.File(extentReportPath).getAbsolutePath());
+        System.out.println("[INFO] HTML Report: " + new java.io.File(System.getProperty("user.dir") + "/test-output/cucumber-reports.html").getAbsolutePath());
+        System.out.println("[INFO] JSON Report: " + new java.io.File(System.getProperty("user.dir") + "/test-output/cucumber.json").getAbsolutePath());
+        
+        return exitStatus;
     }
 
     private static XmlSuite buildSuite(List<String> packages, List<String> classes) {
