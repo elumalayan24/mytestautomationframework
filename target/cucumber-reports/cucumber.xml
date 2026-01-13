@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="5.469" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Login Functionality" name="Successful login with valid credentials" time="4.969">
+<testsuite name="Cucumber" time="2.657" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Login Functionality" name="Failed login with invalid credentials" time="2.579">
 <system-out><![CDATA[
 Given I am on the login page................................................passed
-When I enter username "standard_user" and password "secret_sauce"...........passed
+When I enter username "invalid_user" and password "wrong_password"..........passed
 And I click the login button................................................passed
-Then I should be logged in successfully.....................................passed
-And I should see the products page..........................................passed
+Then I should see an error message "Epic sadface: Username and password do not match any user in this service".passed
 ]]></system-out>
 </testcase>
 </testsuite>

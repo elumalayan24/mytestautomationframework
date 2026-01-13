@@ -1,91 +1,106 @@
 package com.myautomation.hooks;
 
-import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.myautomation.utils.LogCaptureUtil;
+import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import com.myautomation.utils.DriverManager;
 
-import java.util.UUID;
-
-/**
- * Hooks for Cucumber test execution with enhanced reporting and screenshot capabilities.
- */
 public class CucumberReportHooks {
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-    private static final ThreadLocal<String> scenarioName = new ThreadLocal<>();
+    private static final ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
+    private static ExtentReports extent;
 
     @Before
     public void beforeScenario(Scenario scenario) {
-        scenarioName.set(scenario.getName());
-        System.out.println("\n\n=== Starting Scenario: " + scenario.getName() + " ===\n");
-        
-        // Initialize WebDriver if not already done
+        LogCaptureUtil.startCapture();
+        LogCaptureUtil.log("Starting scenario: " + scenario.getName());
+
         if (driver.get() == null) {
             driver.set(DriverManager.getDriver());
         }
+
+        if (extent == null) {
+            ExtentSparkReporter spark = new ExtentSparkReporter("test-output/ExtentReport.html");
+            spark.config().setTheme(Theme.STANDARD);
+            spark.config().setDocumentTitle("Test Execution Report");
+            extent = new ExtentReports();
+            extent.attachReporter(spark);
+        }
+
+        ExtentTest test = extent.createTest(scenario.getName());
+        extentTest.set(test);
     }
 
     @AfterStep
     public void afterStep(Scenario scenario) {
-        // Take screenshot on step failure
-        if (scenario.isFailed()) {
-            WebDriver currentDriver = driver.get();
-            if (currentDriver != null) {
-                try {
-                    byte[] screenshot = ((TakesScreenshot) currentDriver).getScreenshotAs(OutputType.BYTES);
-                    scenario.attach(screenshot, "image/png", "screenshot_" +
-                        scenario.getName().replaceAll("\\s+", "_") + "_" +
-                        UUID.randomUUID().toString().substring(0, 6) + ".png");
+        WebDriver currentDriver = driver.get();
+        if (currentDriver != null) {
+            try {
+                byte[] screenshot = ((TakesScreenshot) currentDriver).getScreenshotAs(OutputType.BYTES);
+                String status = scenario.isFailed() ? "FAILED" : "PASSED";
+                String timestamp = String.valueOf(System.currentTimeMillis());
+                String screenshotName = String.format("screenshot_%s_%s_%s.png",
+                        status.toLowerCase(),
+                        scenario.getName().replaceAll("\\s+", "_"),
+                        timestamp
+                );
 
-                    // Log the failure with step details
-                    System.out.println("\n[FAILED] Step failed at: " + scenario.getLine() +
-                                     "\nError details: " + scenario.getStatus().name() +
-                                     "\nScenario: " + scenario.getName());
-                } catch (Exception e) {
-                    System.err.println("Failed to capture screenshot: " + e.getMessage());
+                scenario.attach(screenshot, "image/png", screenshotName);
+                LogCaptureUtil.addLogsToReport(extentTest.get());
+
+                if (scenario.isFailed()) {
+                    extentTest.get().log(Status.FAIL, "Step Failed");
+                    LogCaptureUtil.log("Step failed: " + scenario.getStatus().name());
+                } else {
+                    extentTest.get().log(Status.PASS, "Step Passed");
                 }
+
+            } catch (Exception e) {
+                LogCaptureUtil.log("Error in afterStep: " + e.getMessage());
+                extentTest.get().log(Status.WARNING, "Failed to capture step details");
             }
         }
     }
 
     @After
     public void afterScenario(Scenario scenario) {
-        // Take final screenshot if scenario failed
-        if (scenario.isFailed()) {
-            WebDriver currentDriver = driver.get();
-            if (currentDriver != null) {
-                try {
-                    byte[] screenshot = ((TakesScreenshot) currentDriver).getScreenshotAs(OutputType.BYTES);
-                    scenario.attach(screenshot, "image/png", "failure_screenshot_" +
-                        scenario.getName().replaceAll("\\s+", "_") + ".png");
-                } catch (Exception e) {
-                    System.err.println("Failed to capture final screenshot: " + e.getMessage());
-                }
+        try {
+            if (scenario.isFailed()) {
+                LogCaptureUtil.log("SCENARIO FAILED: " + scenario.getName());
+                extentTest.get().log(Status.FAIL, "Scenario Failed");
+            } else {
+                LogCaptureUtil.log("SCENARIO PASSED: " + scenario.getName());
+                extentTest.get().log(Status.PASS, "Scenario Passed");
             }
 
-            System.out.println("\n\n=== SCENARIO FAILED: " + scenario.getName() + " ===");
-            System.out.println("Status: " + scenario.getStatus().name());
-            System.out.println("URI: " + scenario.getUri());
-            System.out.println("Line: " + scenario.getLine() + "\n");
-        } else {
-            System.out.println("\n\n=== SCENARIO PASSED: " + scenario.getName() + " ===\n");
+            LogCaptureUtil.addLogsToReport(extentTest.get());
+
+        } catch (Exception e) {
+            LogCaptureUtil.log("Error in afterScenario: " + e.getMessage());
+        } finally {
+            cleanupDriver();
+            LogCaptureUtil.stopCapture();
+
+            if (extent != null) {
+                extent.flush();
+            }
         }
-        
-        // Close the WebDriver after scenario
-        cleanupDriver();
     }
-    
+
     private void cleanupDriver() {
         WebDriver currentDriver = driver.get();
         if (currentDriver != null) {
             try {
                 currentDriver.quit();
             } catch (Exception e) {
-                System.err.println("Error while closing WebDriver: " + e.getMessage());
+                LogCaptureUtil.log("Error while closing WebDriver: " + e.getMessage());
             } finally {
                 driver.remove();
             }

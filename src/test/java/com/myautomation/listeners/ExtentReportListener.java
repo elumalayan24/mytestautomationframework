@@ -7,6 +7,7 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import lombok.Getter;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -16,17 +17,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ExtentReportListener implements ITestListener {
+    @Getter
     private static ExtentReports extent;
     private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
     public static ExtentTest getTest() {
         return test.get();
     }
-    
-    public static ExtentReports getExtent() {
-        return extent;
-    }
-    
+
     public static void createTest(String name, String description) {
         test.set(extent.createTest(name, description));
     }

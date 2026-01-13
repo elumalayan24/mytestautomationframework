@@ -1,0 +1,5 @@
+[2026-01-14 00:22:04.658] [TestSuite_LoginTest_20260114_002204_0650] Session started: TestSuite_LoginTest_20260114_002204_0650
+[2026-01-14 00:22:06.853] [TestSuite_LoginTest_20260114_002204_0650] Navigated to login page
+[2026-01-14 00:22:06.856] [TestSuite_LoginTest_20260114_002204_0650] Entering username: invalid_user and password: **************
+[2026-01-14 00:22:06.980] [TestSuite_LoginTest_20260114_002204_0650] Clicking login button
+[2026-01-14 00:22:07.037] [TestSuite_LoginTest_20260114_002204_0650] Verifying error message. Expected: Epic sadface: Username and password do not match any user in this service, Actual: Epic sadface: Username and password do not match any user in this service
