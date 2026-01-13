@@ -1,0 +1,5 @@
+[2026-01-13 22:19:54.000] [TestSuite_LoginTest_20260113_221953_9233] Session started: TestSuite_LoginTest_20260113_221953_9233
+[2026-01-13 22:19:56.572] [TestSuite_LoginTest_20260113_221953_9233] Navigated to login page
+[2026-01-13 22:19:56.575] [TestSuite_LoginTest_20260113_221953_9233] Entering username: standard_user and password: ************
+[2026-01-13 22:19:56.709] [TestSuite_LoginTest_20260113_221953_9233] Clicking login button
+[2026-01-13 22:19:56.764] [TestSuite_LoginTest_20260113_221953_9233] Verifying successful login. Current URL: https://www.saucedemo.com/inventory.html

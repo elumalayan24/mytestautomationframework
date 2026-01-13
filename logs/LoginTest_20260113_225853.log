@@ -1,0 +1,6 @@
+[2026-01-13 22:58:53.431] [TestSuite_LoginTest_20260113_225853_0368] Session started: TestSuite_LoginTest_20260113_225853_0368
+[2026-01-13 22:58:56.937] [TestSuite_LoginTest_20260113_225853_0368] Navigated to login page
+[2026-01-13 22:58:56.952] [TestSuite_LoginTest_20260113_225853_0368] Entering username: standard_user and password: ************
+[2026-01-13 22:58:57.648] [TestSuite_LoginTest_20260113_225853_0368] Clicking login button
+[2026-01-13 22:58:57.858] [TestSuite_LoginTest_20260113_225853_0368] Verifying successful login. Current URL: https://www.saucedemo.com/inventory.html
+[2026-01-13 22:58:57.878] [TestSuite_LoginTest_20260113_225853_0368] Verifying products page. Page title: Swag Labs

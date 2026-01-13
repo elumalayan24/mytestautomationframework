@@ -1,0 +1,5 @@
+[2026-01-13 22:05:33.688] [LoginTest_1768313133687] Session started: LoginTest_1768313133687
+[2026-01-13 22:05:37.789] [LoginTest_1768313133687] Navigated to login page
+[2026-01-13 22:05:37.792] [LoginTest_1768313133687] Entering username: standard_user and password: ************
+[2026-01-13 22:05:37.982] [LoginTest_1768313133687] Clicking login button
+[2026-01-13 22:05:38.041] [LoginTest_1768313133687] Verifying successful login. Current URL: https://www.saucedemo.com/inventory.html
