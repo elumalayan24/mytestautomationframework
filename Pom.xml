@@ -15,6 +15,7 @@
     <cucumber.version>7.15.0</cucumber.version>
     <extent.version>5.1.1</extent.version>
     <playwright.version>1.42.0</playwright.version>
+    <webdrivermanager.version>5.6.3</webdrivermanager.version>
   </properties>
 
   <dependencies>
@@ -24,7 +25,6 @@
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
       <version>${testng.version}</version>
-      <scope>test</scope>
     </dependency>
 
     <!-- Cucumber -->
@@ -90,6 +90,13 @@
       <artifactId>lombok</artifactId>
       <version>1.18.30</version>
       <scope>provided</scope>
+    </dependency>
+
+    <!-- WebDriverManager -->
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>${webdrivermanager.version}</version>
     </dependency>
 
   </dependencies>

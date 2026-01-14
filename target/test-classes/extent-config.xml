@@ -1,34 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extentreports>
     <configuration>
-        <!-- report theme -->
+        <!-- Report theme: standard or dark -->
         <theme>standard</theme>
-        
-        <!-- document encoding -->
-        <encoding>UTF-8</encoding>
-        
-        <!-- protocol for script and stylesheets -->
-        <protocol>https</protocol>
-        
-        <!-- title of the document -->
+
+        <!-- Document title -->
         <documentTitle>Test Automation Report</documentTitle>
-        
-        <!-- report name - displayed at top-nav -->
-        <reportName>Test Execution Report</reportName>
-        
-        <!-- report headline - displayed at top-nav, after reportHeadline -->
-        <reportHeadline>Test Automation Report</reportHeadline>
-        
-        <!-- global date format override -->
-        <dateFormat>MMM dd, yyyy HH:mm:ss</dateFormat>
-        
-        <!-- custom javascript -->
-        <scripts>
+
+        <!-- Report name -->
+        <reportName>Cucumber Test Execution Report</reportName>
+
+        <!-- Timestamp format -->
+        <timeStampFormat>MMM dd, yyyy HH:mm:ss</timeStampFormat>
+
+        <!-- Report encoding -->
+        <encoding>UTF-8</encoding>
+
+        <!-- JavaScript to enable screenshots -->
+        <js>
             <![CDATA[
-                $(document).ready(function() {
-                    $('.logo-content').html('My Test Automation');
-                });
+                // Enable screenshot modal
+                console.log('ExtentReports loaded');
             ]]>
-        </scripts>
+        </js>
+
+        <!-- CSS Styling -->
+        <css>
+            <![CDATA[
+                .test-content img {
+                    max-width: 100%;
+                    height: auto;
+                    border: 2px solid #ddd;
+                    border-radius: 4px;
+                    margin: 10px 0;
+                    cursor: pointer;
+                }
+
+                .test-content img:hover {
+                    border-color: #3498db;
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                }
+
+                .log-message {
+                    font-family: 'Courier New', monospace;
+                    background: #f4f4f4;
+                    padding: 10px;
+                    border-left: 3px solid #3498db;
+                    margin: 5px 0;
+                }
+            ]]>
+        </css>
     </configuration>
 </extentreports>

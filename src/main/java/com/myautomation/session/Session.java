@@ -2,8 +2,6 @@ package com.myautomation.session;
 
 import com.myautomation.utils.ErrorLogger;
 
-import com.myautomation.utils.ErrorLogger;
-
 /**
  * Represents a session in the application.
  */

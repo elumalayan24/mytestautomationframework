@@ -10,7 +10,7 @@ import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import com.myautomation.utils.DriverManager;
+import com.myautomation.core.drivers.DriverManager;
 
 public class CucumberReportHooks {
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();

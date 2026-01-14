@@ -14,7 +14,7 @@ Feature: Login Functionality
     Then I should be logged in successfully
     And I should see the products page
 
-  @regression
+  @regressions
   Scenario: Failed login with invalid credentials
     When I enter username "invalid_user" and password "wrong_password"
     And I click the login button
