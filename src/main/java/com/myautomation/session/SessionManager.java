@@ -1,5 +1,6 @@
 package com.myautomation.session;
 
+import com.myautomation.core.drivers.DriverManager;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -9,6 +10,24 @@ import java.util.concurrent.ConcurrentHashMap;
 public class SessionManager {
     private final Map<String, Session> sessions = new ConcurrentHashMap<>();
     private volatile boolean isShutdown = false;
+    private static final SessionManager INSTANCE = new SessionManager();
+    
+    /**
+     * Gets the singleton instance of SessionManager.
+     * @return the SessionManager instance
+     */
+    public static SessionManager getInstance() {
+        return INSTANCE;
+    }
+    
+    /**
+     * Closes all sessions (static method for convenience in hooks).
+     */
+    public static void closeAll() {
+        System.out.println("[SessionManager] Closing all sessions and cleaning up drivers...");
+        getInstance().clearSessions();
+        DriverManager.forceKillAllBrowsers();
+    }
     
     /**
      * Creates a new session with the specified ID.

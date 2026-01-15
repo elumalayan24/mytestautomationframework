@@ -75,6 +75,10 @@ public class ReporterClass {
      * @param message Message to log
      */
     public static void logInfo(String message) {
+        // Always log to console
+        System.out.println("[INFO] " + message);
+        
+        // Also log to ExtentReports if test is initialized
         if (test.get() != null) {
             test.get().info(message);
         }

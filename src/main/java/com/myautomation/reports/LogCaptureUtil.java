@@ -61,7 +61,13 @@ public class LogCaptureUtil {
         String logEntry = String.format("[%s] [Thread-%d] %s",
                 timestamp, Thread.currentThread().getId(), message);
 
-        System.out.println(logEntry);
+        // Always print to original console output
+        PrintStream original = originalOut.get();
+        if (original != null) {
+            original.println(logEntry);
+        } else {
+            System.out.println(logEntry);
+        }
 
         Queue<String> queue = logQueue.get();
         if (queue != null) {

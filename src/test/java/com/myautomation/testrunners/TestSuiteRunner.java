@@ -1,4 +1,4 @@
-package com.myautomation.utils;
+package com.myautomation.testrunners;
 
 import org.testng.TestNG;
 import org.testng.xml.XmlClass;
@@ -11,15 +11,34 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 
 
 public class TestSuiteRunner {
 
     public static void main(String[] args) {
-        String featuresCsv = System.getProperty("features", "elu.feature").trim();
+        String featuresCsv = System.getProperty("features", "login.feature").trim();
         String glueCsv = System.getProperty("glue", "").trim();
         String tags = System.getProperty("tags", "").trim();
+        
+        // Auto-detect tags if none specified (for IDE runs)
+        if (tags.isEmpty() && !featuresCsv.isEmpty()) {
+            // Default to @smoke if feature file has smoke tag
+            try {
+                String featureContent = new String(Files.readAllBytes(
+                    Paths.get("src/test/resources/features/" + featuresCsv)));
+                if (featureContent.contains("@smoke")) {
+                    tags = "@smoke";
+                    System.out.println("Auto-detected @smoke tag - running smoke tests only");
+                } else {
+                    System.out.println("No @smoke tag found - running all scenarios");
+                }
+            } catch (Exception e) {
+                System.out.println("Could not auto-detect tags, running all scenarios");
+            }
+        }
 
         String packagesCsv = System.getProperty("packages", "").trim();
         String classesCsv = System.getProperty("classes", "").trim();
@@ -63,18 +82,22 @@ public class TestSuiteRunner {
 
         // Add glue packages
         if (!glue.isEmpty()) {
+            for (String gluePackage : glue) {
+                cucumberOptions.add("--glue");
+                cucumberOptions.add(gluePackage);
+            }
+        } else {
+            // Add default glue packages if none specified
             cucumberOptions.add("--glue");
-            cucumberOptions.add(String.join(",", glue));
+            cucumberOptions.add("com.myautomation.stepdefinitions");
+            cucumberOptions.add("--glue");
+            cucumberOptions.add("com.myautomation.hooks");
         }
         
         if (tags != null && !tags.isBlank()) {
             cucumberOptions.add("--tags");
             cucumberOptions.add(tags);
         }
-        
-        // Add ExtentReports plugin
-        cucumberOptions.add("--plugin");
-        cucumberOptions.add("com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:");
         
         // Add other useful plugins
         cucumberOptions.add("--plugin");

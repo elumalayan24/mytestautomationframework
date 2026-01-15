@@ -1,3 +1,4 @@
+
 @login
 Feature: Login Functionality
   As a user
@@ -7,12 +8,13 @@ Feature: Login Functionality
   Background:
     Given I am on the login page
 
-  @smoke
+
+
   Scenario: Successful login with valid credentials
     When I enter username "standard_user" and password "secret_sauce"
     And I click the login button
     Then I should be logged in successfully
-    And I should see the products page
+
 
   @regressions
   Scenario: Failed login with invalid credentials

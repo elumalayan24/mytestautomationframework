@@ -1,4 +1,10 @@
-com\myautomation\hooks\CucumberHooks.class
+com\myautomation\test\TestSuiteIdStaticTest.class
+com\myautomation\testrunners\CucumberRunner.class
+com\myautomation\testrunners\DirectCucumberTest.class
 com\myautomation\stepdefinitions\LoginSteps.class
 com\myautomation\hooks\CucumberReportHooks.class
-com\myautomation\utils\TestSuiteRunner.class
+com\myautomation\testrunners\TestSuiteRunner.class
+com\myautomation\testrunners\IntelliJTestRunner.class
+com\myautomation\hooks\TestSuiteHook.class
+com\myautomation\testrunners\TestRunner.class
+com\myautomation\testrunners\TestSuiteIdTest.class
