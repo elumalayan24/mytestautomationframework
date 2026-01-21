@@ -11,19 +11,23 @@ import org.testng.Assert;
 
 import static com.myautomation.utils.LogCaptureUtil.log;
 import static com.myautomation.utils.ReporterClass.logInfo;
+import io.cucumber.java.Before;
 
 public class LoginSteps {
-    private final WebDriver driver;
+    private WebDriver driver;
     private LoginPage loginPage;
 
-    public LoginSteps() {
-        this.driver = DriverManager.getDriver();
+    private WebDriver getDriver() {
+        if (driver == null) {
+            driver = DriverManager.getDriver();
+        }
+        return driver;
     }
 
     @Given("I am on the login page")
     public void i_am_on_the_login_page() {
-        loginPage = new LoginPage(driver);
-        driver.get("https://www.saucedemo.com/");
+        loginPage = new LoginPage(getDriver());
+        getDriver().get("https://www.saucedemo.com/");
         log("Navigated to login page");
     }
 
@@ -43,7 +47,7 @@ public class LoginSteps {
 
     @Then("I should be logged in successfully")
     public void i_should_be_logged_in_successfully() {
-        String currentUrl = driver.getCurrentUrl();
+        String currentUrl = getDriver().getCurrentUrl();
         boolean isLoggedIn = currentUrl.contains("inventory.html");
         log("Verifying successful login. Current URL: " + currentUrl);
         Assert.assertTrue(isLoggedIn, "Login was not successful. Expected to be on inventory page but was on: " + currentUrl);
@@ -51,7 +55,7 @@ public class LoginSteps {
 
     @Then("I should see the products page")
     public void i_should_see_the_products_page() {
-        String title = driver.getTitle();
+        String title = getDriver().getTitle();
         log("Verifying products page. Page title: " + title);
         Assert.assertTrue(title.contains("Swag Labs"));
     }

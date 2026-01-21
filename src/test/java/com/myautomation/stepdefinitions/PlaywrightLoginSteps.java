@@ -21,7 +21,7 @@ public class PlaywrightLoginSteps {
 
     @Given("I am on the login page using Playwright")
     public void i_am_on_the_login_page_using_playwright() {
-        loginPage.navigate("https://www.saucedemo.com/");
+        loginPage.navigate("https://www.google.com/");
         loginPage.waitForPageLoad();
         log("Navigated to login page using Playwright");
     }

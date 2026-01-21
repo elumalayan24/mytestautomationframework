@@ -28,7 +28,7 @@ public class CucumberReportHooks {
                System.currentTimeMillis() % 10000;
     }
 
-    @Before(order = 0)
+    @Before(order = 0, value = "not @playwright")
     public static void beforeAll(Scenario scenario) {
         if (!suiteInitialized) {
             // Generate test suite ID immediately - this is the ONLY source
@@ -68,7 +68,7 @@ public class CucumberReportHooks {
         }
     }
 
-    @Before
+    @Before(value = "not @playwright")
     public void beforeScenario(Scenario scenario) {
         LogCaptureUtil.startCapture();
         LogCaptureUtil.log("Starting scenario: " + scenario.getName());
@@ -81,7 +81,7 @@ public class CucumberReportHooks {
         extentTest.set(test);
     }
 
-    @AfterStep
+    @AfterStep(value = "not @playwright")
     public void afterStep(Scenario scenario) {
         LogCaptureUtil.addLogsToReport(extentTest.get());
 
@@ -106,7 +106,7 @@ public class CucumberReportHooks {
         }
     }
 
-    @After
+    @After(value = "not @playwright")
     public void afterScenario(Scenario scenario) {
         try {
             if (scenario.isFailed()) {
@@ -129,7 +129,7 @@ public class CucumberReportHooks {
         }
     }
 
-    @After(order = 1000)
+    @After(order = 1000, value = "not @playwright")
     public void afterAll(Scenario scenario) {
         try {
             LogCaptureUtil.log("=== Final cleanup after all test scenarios ===");

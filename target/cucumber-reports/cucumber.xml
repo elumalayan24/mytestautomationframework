@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="1.811" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="Login Functionality with Playwright" name="Successful login with valid credentials using Playwright" time="1.713">
-<failure/>
+<testsuite name="Cucumber" time="7.055" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Login Functionality" name="Successful login with valid credentials" time="6.843">
 <system-out><![CDATA[
-Given I am on the login page using Playwright...............................undefined
-When I enter username "standard_user" and password "secret_sauce" using Playwright.skipped
-And I click the login button using Playwright...............................skipped
-Then I should be logged in successfully using Playwright....................skipped
-And I should see the products page using Playwright.........................skipped
+Given I am on the login page................................................passed
+When I enter username "standard_user" and password "secret_sauce"...........passed
+And I click the login button................................................passed
+Then I should be logged in successfully.....................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

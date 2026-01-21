@@ -11,7 +11,7 @@ import static com.myautomation.utils.LogCaptureUtil.log;
 public class PlaywrightHooks {
     private static boolean suiteInitialized = false;
 
-    @Before(order = 0)
+    @Before(order = 0, value = "@playwright")
     public void beforeAll(Scenario scenario) {
         if (!suiteInitialized) {
             log("Starting Playwright test suite");
@@ -19,21 +19,14 @@ public class PlaywrightHooks {
         }
     }
 
-    @Before
+    @Before(order = 1, value = "@playwright")
     public void beforeScenario(Scenario scenario) {
         log("Starting Playwright scenario: " + scenario.getName());
-        // Playwright driver is initialized lazily in step definitions
     }
 
-    @After
+    @After(value = "@playwright")
     public void afterScenario(Scenario scenario) {
         try {
-            if (scenario.isFailed()) {
-                log("Playwright SCENARIO FAILED: " + scenario.getName());
-            } else {
-                log("Playwright SCENARIO PASSED: " + scenario.getName());
-            }
-
             // Take screenshot on failure
             if (scenario.isFailed()) {
                 Page page = PlaywrightDriverManager.getDriver();
@@ -57,13 +50,13 @@ public class PlaywrightHooks {
         } catch (Exception e) {
             log("Error in Playwright afterScenario: " + e.getMessage());
         } finally {
-            // Clean up Playwright resources after each scenario
-            log("Cleaning up Playwright resources after scenario: " + scenario.getName());
-            PlaywrightDriverManager.unload();
+            // Clean up page and context after each scenario, but keep browser alive
+            PlaywrightDriverManager.closePage();
+            PlaywrightDriverManager.closeContext();
         }
     }
 
-    @After(order = 1000)
+    @After(order = 1000, value = "@playwright")
     public void afterAll(Scenario scenario) {
         try {
             log("=== Final Playwright cleanup after all test scenarios ===");

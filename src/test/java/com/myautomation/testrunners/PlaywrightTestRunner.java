@@ -12,8 +12,13 @@ import org.junit.runner.RunWith;
                 "pretty",
                 "html:test-output/playwright-cucumber-reports.html",
                 "json:test-output/playwright-cucumber.json",
-                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
-        }
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+                "com.myautomation.adapters.CustomExtentCucumberAdapter:",
+                "parallel"
+        },
+        dryRun = false,
+        strict = true,
+        monochrome = true
 )
 public class PlaywrightTestRunner {
 }

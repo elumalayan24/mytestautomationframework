@@ -136,6 +136,13 @@
         <version>3.0.0</version>
         <configuration>
           <jvm>C:\JDK\jdk-21\bin\java.exe</jvm>
+          <parallel>methods</parallel>
+          <threadCount>4</threadCount>
+          <perCoreThreadCount>true</perCoreThreadCount>
+          <useUnlimitedThreads>false</useUnlimitedThreads>
+          <systemPropertyVariables>
+            <cucumber.options>--threads 4</cucumber.options>
+          </systemPropertyVariables>
         </configuration>
       </plugin>
 
