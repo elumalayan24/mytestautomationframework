@@ -28,3 +28,21 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Maven ###
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### Build artifacts ###
+*.jar
+*.class
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+### Logs ###
+*.log
+logs/
