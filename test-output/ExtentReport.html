@@ -55,7 +55,7 @@ margin: 5px 0;
 <a href="#"><span class="badge badge-primary">Cucumber Test Execution Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jan 21, 2026 23:31:32</span></a>
+<a href="#"><span class="badge badge-primary">Feb 07, 2026 22:17:22</span></a>
 </li>
 </ul>
 </div>
@@ -91,19 +91,19 @@ margin: 5px 0;
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jan 21, 2026 23:31:32</h3>
+<h3>Feb 07, 2026 22:17:22</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jan 21, 2026 23:32:37</h3>
+<h3>Feb 07, 2026 22:18:00</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Features Passed</p>
-<h3>0</h3>
+<h3>1</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -125,12 +125,12 @@ margin: 5px 0;
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='0%'>
-<b>0</b> features passed
+<div><small data-tooltip='50%'>
+<b>1</b> features passed
 </small>
 </div>
 <div>
-<small data-tooltip='100%'><b>1</b> features failed,
+<small data-tooltip='50%'><b>1</b> features failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -148,9 +148,9 @@ margin: 5px 0;
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='0%'><b>0</b> scenarios passed</small></div>
+<div><small data-tooltip='33%'><b>1</b> scenarios passed</small></div>
 <div>
-<small data-tooltip='100%'><b>3</b> scenarios failed,
+<small data-tooltip='66%'><b>2</b> scenarios failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -168,10 +168,10 @@ margin: 5px 0;
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='28%'><b>4</b> steps passed</small></div>
+<div><small data-tooltip='57%'><b>8</b> steps passed</small></div>
 <div>
-<small data-tooltip='21%'><b>3</b> steps failed,
-<b>7</b> skipped, <b data-tooltip='%'>0</b> others
+<small data-tooltip='14%'><b>2</b> steps failed,
+<b>4</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -187,7 +187,7 @@ margin: 5px 0;
 </div></div>
 <script>
 var timeline = {
-"Login Functionality with Playwright":63.531
+"Playwright Web Automation Sample":33.402,"Screenshot Test":0.969
 };
 </script>
 <div class="row">
@@ -198,11 +198,11 @@ var timeline = {
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
 <td>@playwright</td>
+<td>1</td>
+<td>2</td>
 <td>0</td>
-<td>3</td>
 <td>0</td>
-<td>0</td>
-<td>0%</td>
+<td>33.333%</td>
 </tr>
 </tbody>
 </table></div>
@@ -239,21 +239,21 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 0,
+passParent: 1,
 failParent: 1,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 0,
-failChild: 3,
+passChild: 1,
+failChild: 2,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 4,
-failGrandChild: 3,
+passGrandChild: 8,
+failGrandChild: 2,
 warningGrandChild: 0,
-skipGrandChild: 7,
+skipGrandChild: 4,
 infoGrandChild: 0,
 eventsCount: 5,
 };
@@ -267,6 +267,7 @@ eventsCount: 5,
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
 <a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
@@ -281,14 +282,14 @@ eventsCount: 5,
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="fail" test-id="1"
+        <li class="test-item"  status="fail" test-id="3"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Login Functionality with Playwright</p>
+            <p class="name">Playwright Web Automation Sample</p>
             <p class="text-sm">
-              <span>11:31:33 pm</span> / <span>00:01:03:531</span>
+              <span>10:17:25 pm</span> / <span>00:00:33:402</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -296,25 +297,23 @@ eventsCount: 5,
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">Login Functionality with Playwright</h5>
-<span class='badge badge-success'>01.21.2026 11:31:33 pm</span>
-<span class='badge badge-danger'>01.21.2026 11:32:37 pm</span>
-<span class='badge badge-default'>00:01:03:531</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<h5 class="test-status text-fail">Playwright Web Automation Sample</h5>
+<span class='badge badge-success'>02.07.2026 10:17:25 pm</span>
+<span class='badge badge-danger'>02.07.2026 10:17:58 pm</span>
+<span class='badge badge-default'>00:00:33:402</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
-<div class="m-t-10 m-l-5"> As a user
-I want to be able to log into the application using Playwright
-So that I can access my account</div>
+<div class="m-t-10 m-l-5"></div>
 </div>
 </div>
 <div class="accordion mt-4">
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log fail-bg mr-2">Fail</span>Successful login with valid credentials using Playwright</div>
+        <div class="node" id="4"><span class="badge log fail-bg mr-2">Fail</span>Search for a product on an e-commerce website</div>
           <div class="status-avatar float-right mr-4">
             <i class="fa fa-paperclip"></i>
           </div>
@@ -322,26 +321,280 @@ So that I can access my account</div>
     </div>
         <div class="">
           <div class="card-body">
-              <div class="step pass-bg" title="com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_am_on_the_login_page_using_playwright()">
-                <span>Given I am on the login page using Playwright</span>
+              <div class="step pass-bg" title="com.myautomation.steps.PlaywrightSteps.iOpenTheBrowserAndNavigateTo(java.lang.String)">
+                <span>Given I open the browser and navigate to "https://www.google.com"</span>
       <div>
       </div>
               </div>
-              <div class="step fail-bg" title="com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_enter_username_and_password_using_playwright(java.lang.String,java.lang.String)">
-                <span>When I enter username "standard_user" and password "secret_sauce" using Playwright</span>
+              <div class="step fail-bg" title="com.myautomation.steps.PlaywrightSteps.iSearchForInTheSearchBox(java.lang.String)">
+                <span>When I search for "laptop" in the search box</span>
       <div>
         <textarea disabled class="code-block">com.microsoft.playwright.TimeoutError: Error {
   message='Timeout 30000ms exceeded.
   name='TimeoutError
   stack='TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\progress.js:78:26)
-    at Frame.fill (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\frames.js:1041:23)
-    at FrameDispatcher.fill (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\dispatchers\frameDispatcher.js:170:30)
-    at FrameDispatcher._handleCommand (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\dispatchers\dispatcher.js:94:40)
-    at DispatcherConnection.dispatch (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\dispatchers\dispatcher.js:365:39)
+    at ProgressController.run (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-13514026569654016545\package\lib\server\progress.js:78:26)
+    at Frame.fill (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-13514026569654016545\package\lib\server\frames.js:1041:23)
+    at FrameDispatcher.fill (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-13514026569654016545\package\lib\server\dispatchers\frameDispatcher.js:170:30)
+    at FrameDispatcher._handleCommand (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-13514026569654016545\package\lib\server\dispatchers\dispatcher.js:94:40)
+    at DispatcherConnection.dispatch (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-13514026569654016545\package\lib\server\dispatchers\dispatcher.js:365:39)
 }
 Call log:
-- waiting for locator("#user-name")
+- waiting for locator("input").first()
+-   locator resolved to <input name="btnK" tabindex="0" role="button" type="sub…/>
+-   fill("laptop")
+- attempting fill action
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #1
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #2
+-   waiting 20ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #3
+-   waiting 100ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #4
+-   waiting 100ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #5
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #6
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #7
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #8
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #9
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #10
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #11
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #12
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #13
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #14
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #15
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #16
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #17
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #18
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #19
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #20
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #21
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #22
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #23
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #24
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #25
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #26
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #27
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #28
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #29
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #30
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #31
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #32
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #33
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #34
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #35
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #36
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #37
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #38
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #39
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #40
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #41
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #42
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #43
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #44
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #45
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #46
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #47
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #48
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #49
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #50
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #51
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #52
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #53
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #54
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #55
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #56
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #57
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #58
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #59
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #60
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #61
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #62
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #63
+-   waiting 500ms
 
 	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
 	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
@@ -356,21 +609,274 @@ Call log:
 	at com.microsoft.playwright.impl.FrameImpl.fill(FrameImpl.java:325)
 	at com.microsoft.playwright.impl.LocatorImpl.fill(LocatorImpl.java:226)
 	at com.microsoft.playwright.Locator.fill(Locator.java:2947)
-	at com.myautomation.pages.playwright.PlaywrightLoginPage.enterUsername(PlaywrightLoginPage.java:23)
-	at com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_enter_username_and_password_using_playwright(PlaywrightLoginSteps.java:31)
-	at ✽.I enter username "standard_user" and password "secret_sauce" using Playwright(file:///C:/Users/elumalayan/IdeaProjects/my-test-automation-intellijfinal/src/test/resources/features/playwright-login.feature:11)
+	at com.myautomation.steps.PlaywrightSteps.iSearchForInTheSearchBox(PlaywrightSteps.java:41)
+	at ✽.I search for "laptop" in the search box(file:///C:/Users/elumalayan/IdeaProjects/my-test-automation-intellijfinal/src/test/resources/features/playwright-sample.feature:6)
 Caused by: com.microsoft.playwright.TimeoutError: Error {
   message='Timeout 30000ms exceeded.
   name='TimeoutError
   stack='TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\progress.js:78:26)
-    at Frame.fill (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\frames.js:1041:23)
-    at FrameDispatcher.fill (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\dispatchers\frameDispatcher.js:170:30)
-    at FrameDispatcher._handleCommand (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\dispatchers\dispatcher.js:94:40)
-    at DispatcherConnection.dispatch (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\dispatchers\dispatcher.js:365:39)
+    at ProgressController.run (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-13514026569654016545\package\lib\server\progress.js:78:26)
+    at Frame.fill (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-13514026569654016545\package\lib\server\frames.js:1041:23)
+    at FrameDispatcher.fill (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-13514026569654016545\package\lib\server\dispatchers\frameDispatcher.js:170:30)
+    at FrameDispatcher._handleCommand (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-13514026569654016545\package\lib\server\dispatchers\dispatcher.js:94:40)
+    at DispatcherConnection.dispatch (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-13514026569654016545\package\lib\server\dispatchers\dispatcher.js:365:39)
 }
 Call log:
-- waiting for locator("#user-name")
+- waiting for locator("input").first()
+-   locator resolved to <input name="btnK" tabindex="0" role="button" type="sub…/>
+-   fill("laptop")
+- attempting fill action
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #1
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #2
+-   waiting 20ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #3
+-   waiting 100ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #4
+-   waiting 100ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #5
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #6
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #7
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #8
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #9
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #10
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #11
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #12
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #13
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #14
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #15
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #16
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #17
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #18
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #19
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #20
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #21
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #22
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #23
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #24
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #25
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #26
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #27
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #28
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #29
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #30
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #31
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #32
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #33
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #34
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #35
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #36
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #37
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #38
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #39
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #40
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #41
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #42
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #43
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #44
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #45
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #46
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #47
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #48
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #49
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #50
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #51
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #52
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #53
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #54
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #55
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #56
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #57
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #58
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #59
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #60
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #61
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #62
+-   waiting 500ms
+-   waiting for element to be visible, enabled and editable
+-   element is not visible
+- retrying fill action, attempt #63
+-   waiting 500ms
 
 	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:254)
 	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
@@ -386,8 +892,7 @@ Call log:
 	at com.microsoft.playwright.impl.FrameImpl.fill(FrameImpl.java:325)
 	at com.microsoft.playwright.impl.LocatorImpl.fill(LocatorImpl.java:226)
 	at com.microsoft.playwright.Locator.fill(Locator.java:2947)
-	at com.myautomation.pages.playwright.PlaywrightLoginPage.enterUsername(PlaywrightLoginPage.java:23)
-	at com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_enter_username_and_password_using_playwright(PlaywrightLoginSteps.java:31)
+	at com.myautomation.steps.PlaywrightSteps.iSearchForInTheSearchBox(PlaywrightSteps.java:41)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
@@ -402,57 +907,57 @@ Call log:
 	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
 	at io.cucumber.core.runner.TestCase.run(TestCase.java:84)
 	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
-	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.junit.platform.engine.CucumberEngineExecutionContext.lambda$runTestCase$4(CucumberEngineExecutionContext.java:112)
 	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
 	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
 	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
-	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
-	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
-	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
-	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
-	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
-	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
-	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
-	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
-	at org.testng.junit.JUnit4TestRunner.start(JUnit4TestRunner.java:78)
-	at org.testng.junit.JUnit4TestRunner.run(JUnit4TestRunner.java:63)
-	at org.testng.TestRunner$1.run(TestRunner.java:708)
+	at io.cucumber.junit.platform.engine.CucumberEngineExecutionContext.runTestCase(CucumberEngineExecutionContext.java:109)
+	at io.cucumber.junit.platform.engine.NodeDescriptor$PickleDescriptor.execute(NodeDescriptor.java:168)
+	at io.cucumber.junit.platform.engine.NodeDescriptor$PickleDescriptor.execute(NodeDescriptor.java:90)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.testng.TestRunner.runJUnitWorkers(TestRunner.java:898)
-	at org.testng.TestRunner.privateRunJUnit(TestRunner.java:737)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
-	at org.testng.TestNG.runSuites(TestNG.java:1134)
-	at org.testng.TestNG.run(TestNG.java:1101)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
@@ -461,24 +966,24 @@ Call log:
       
       </div>
               </div>
-              <div class="step skip-bg" title="com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_click_the_login_button_using_playwright()">
-                <span>And I click the login button using Playwright</span>
+              <div class="step skip-bg" title="com.myautomation.steps.PlaywrightSteps.iClickOnTheFirstSearchResult()">
+                <span>And I click on the first search result</span>
       <div>Step skipped
       </div>
               </div>
-              <div class="step skip-bg" title="com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_should_be_logged_in_successfully_using_playwright()">
-                <span>Then I should be logged in successfully using Playwright</span>
+              <div class="step skip-bg" title="com.myautomation.steps.PlaywrightSteps.iShouldSeeProductDetailsDisplayed()">
+                <span>Then I should see product details displayed</span>
       <div>Step skipped
       </div>
               </div>
-              <div class="step skip-bg" title="com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_should_see_the_products_page_using_playwright()">
-                <span>And I should see the products page using Playwright</span>
+              <div class="step skip-bg" title="com.myautomation.steps.PlaywrightSteps.iTakeAScreenshotOfTheProductPage()">
+                <span>And I take a screenshot of the product page</span>
       <div>Step skipped
       </div>
               </div>
               <div class="step pass-bg" title="AFTER">
-                <span>com.myautomation.hooks.PlaywrightHooks.afterScenario(io.cucumber.java.Scenario)</span>
-      <div>playwright_screenshot_failed_Successful_login_with_valid_credentials_using_Playwright_1769009531530.png
+                <span>com.myautomation.hooks.ReportingHooks.afterScenario(io.cucumber.java.Scenario)</span>
+      <div>Screenshot
           <div class="row mb-3"><div class="col-md-3">
 <img data-featherlight='screenshots/embedded1.png' src="screenshots/embedded1.png">
     
@@ -493,322 +998,119 @@ Call log:
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="14"><span class="badge log fail-bg mr-2">Fail</span>Failed login with invalid credentials using Playwright</div>
+        <div class="node" id="19"><span class="badge log fail-bg mr-2">Fail</span>Verify page title and URL</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
       </div>
     </div>
         <div class="">
           <div class="card-body">
-              <div class="step pass-bg" title="com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_am_on_the_login_page_using_playwright()">
-                <span>Given I am on the login page using Playwright</span>
+              <div class="step pass-bg" title="com.myautomation.steps.PlaywrightSteps.iOpenTheBrowserAndNavigateTo(java.lang.String)">
+                <span>Given I open the browser and navigate to "https://www.google.com"</span>
       <div>
       </div>
               </div>
-              <div class="step fail-bg" title="com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_enter_username_and_password_using_playwright(java.lang.String,java.lang.String)">
-                <span>When I enter username "invalid_user" and password "wrong_password" using Playwright</span>
+              <div class="step pass-bg" title="com.myautomation.steps.PlaywrightSteps.iWaitForThePageToLoadCompletely()">
+                <span>When I wait for the page to load completely</span>
       <div>
-        <textarea disabled class="code-block">com.microsoft.playwright.PlaywrightException: Error {
-  message='Target page, context or browser has been closed
-  name='TargetClosedError
-  stack='TargetClosedError:Target page, context or browser has been closed
-Error
-    at captureRawStack (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\utils\stackTrace.js:50:17)
-    at LongStandingScope._race (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\utils\manualPromise.js:91:52)
-    at LongStandingScope.race (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\utils\manualPromise.js:84:17)
-    at FrameDispatcher._handleCommand (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\dispatchers\dispatcher.js:96:36)
-    at DispatcherConnection.dispatch (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\dispatchers\dispatcher.js:365:39)
-}
-Call log:
-- waiting for locator("#user-name")
-
-	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:54)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
-	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
-	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
-	at com.microsoft.playwright.impl.FrameImpl.fillImpl(FrameImpl.java:335)
-	at com.microsoft.playwright.impl.FrameImpl.lambda$fill$14(FrameImpl.java:325)
-	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
-	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
-	at com.microsoft.playwright.impl.FrameImpl.fill(FrameImpl.java:325)
-	at com.microsoft.playwright.impl.LocatorImpl.fill(LocatorImpl.java:226)
-	at com.microsoft.playwright.Locator.fill(Locator.java:2947)
-	at com.myautomation.pages.playwright.PlaywrightLoginPage.enterUsername(PlaywrightLoginPage.java:23)
-	at com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_enter_username_and_password_using_playwright(PlaywrightLoginSteps.java:31)
-	at ✽.I enter username "invalid_user" and password "wrong_password" using Playwright(file:///C:/Users/elumalayan/IdeaProjects/my-test-automation-intellijfinal/src/test/resources/features/playwright-login.feature:17)
-Caused by: com.microsoft.playwright.impl.TargetClosedError: Error {
-  message='Target page, context or browser has been closed
-  name='TargetClosedError
-  stack='TargetClosedError:Target page, context or browser has been closed
-Error
-    at captureRawStack (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\utils\stackTrace.js:50:17)
-    at LongStandingScope._race (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\utils\manualPromise.js:91:52)
-    at LongStandingScope.race (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\utils\manualPromise.js:84:17)
-    at FrameDispatcher._handleCommand (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\dispatchers\dispatcher.js:96:36)
-    at DispatcherConnection.dispatch (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\dispatchers\dispatcher.js:365:39)
-}
-Call log:
-- waiting for locator("#user-name")
-
-	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:256)
-	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
-	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
-	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
-	at com.microsoft.playwright.impl.FrameImpl.fillImpl(FrameImpl.java:335)
-	at com.microsoft.playwright.impl.FrameImpl.lambda$fill$14(FrameImpl.java:325)
-	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
-	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
-	at com.microsoft.playwright.impl.FrameImpl.fill(FrameImpl.java:325)
-	at com.microsoft.playwright.impl.LocatorImpl.fill(LocatorImpl.java:226)
-	at com.microsoft.playwright.Locator.fill(Locator.java:2947)
-	at com.myautomation.pages.playwright.PlaywrightLoginPage.enterUsername(PlaywrightLoginPage.java:23)
-	at com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_enter_username_and_password_using_playwright(PlaywrightLoginSteps.java:31)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
-	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
-	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
-	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
-	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
-	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
-	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
-	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
-	at io.cucumber.core.runner.TestStep.run(TestStep.java:56)
-	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
-	at io.cucumber.core.runner.TestCase.run(TestCase.java:84)
-	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
-	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
-	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
-	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
-	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
-	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
-	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
-	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
-	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
-	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
-	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
-	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
-	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
-	at org.testng.junit.JUnit4TestRunner.start(JUnit4TestRunner.java:78)
-	at org.testng.junit.JUnit4TestRunner.run(JUnit4TestRunner.java:63)
-	at org.testng.TestRunner$1.run(TestRunner.java:708)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.testng.TestRunner.runJUnitWorkers(TestRunner.java:898)
-	at org.testng.TestRunner.privateRunJUnit(TestRunner.java:737)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
-	at org.testng.TestNG.runSuites(TestNG.java:1134)
-	at org.testng.TestNG.run(TestNG.java:1101)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+      </div>
+              </div>
+              <div class="step fail-bg" title="com.myautomation.steps.PlaywrightSteps.thePageTitleShouldContain(java.lang.String)">
+                <span>Then the page title should contain "Example"</span>
+      <div>
+        <textarea disabled class="code-block">org.opentest4j.AssertionFailedError: Page title should contain 'Example'. Actual title: Google ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
+	at com.myautomation.steps.PlaywrightSteps.thePageTitleShouldContain(PlaywrightSteps.java:90)
+	at ✽.the page title should contain "Example"(file:///C:/Users/elumalayan/IdeaProjects/my-test-automation-intellijfinal/src/test/resources/features/playwright-sample.feature:15)
 </textarea>
       
       </div>
               </div>
-              <div class="step skip-bg" title="com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_click_the_login_button_using_playwright()">
-                <span>And I click the login button using Playwright</span>
+              <div class="step skip-bg" title="com.myautomation.steps.PlaywrightSteps.theCurrentURLShouldBe(java.lang.String)">
+                <span>And the current URL should be "https://www.google.com"</span>
       <div>Step skipped
       </div>
               </div>
-              <div class="step skip-bg" title="com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_should_see_an_error_message_using_playwright(java.lang.String)">
-                <span>Then I should see an error message "Epic sadface: Username and password do not match any user in this service" using Playwright</span>
-      <div>Step skipped
+              <div class="step pass-bg" title="AFTER">
+                <span>com.myautomation.hooks.ReportingHooks.afterScenario(io.cucumber.java.Scenario)</span>
+      <div>Screenshot
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='screenshots/embedded2.png' src="screenshots/embedded2.png">
+    
+    </div></div>
+</div>
+      <div>
       </div>
               </div>
           </div>
         </div>
   </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="33"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Screenshot Test</p>
+            <p class="text-sm">
+              <span>10:17:58 pm</span> / <span>00:00:00:969</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Screenshot Test</h5>
+<span class='badge badge-success'>02.07.2026 10:17:58 pm</span>
+<span class='badge badge-danger'>02.07.2026 10:17:59 pm</span>
+<span class='badge badge-default'>00:00:00:969</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=33</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="25"><span class="badge log fail-bg mr-2">Fail</span>Failed login with locked user using Playwright</div>
+        <div class="node" id="34"><span class="badge log pass-bg mr-2">Pass</span>Test screenshot display in report</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
       </div>
     </div>
-        <div class="">
+        <div class="collapse">
           <div class="card-body">
-              <div class="step pass-bg" title="com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_am_on_the_login_page_using_playwright()">
-                <span>Given I am on the login page using Playwright</span>
+              <div class="step pass-bg" title="com.myautomation.steps.PlaywrightSteps.iOpenTheBrowserAndNavigateTo(java.lang.String)">
+                <span>Given I open the browser and navigate to "https://example.com"</span>
       <div>
       </div>
               </div>
-              <div class="step fail-bg" title="com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_enter_username_and_password_using_playwright(java.lang.String,java.lang.String)">
-                <span>When I enter username "locked_out_user" and password "secret_sauce" using Playwright</span>
+              <div class="step pass-bg" title="com.myautomation.steps.PlaywrightSteps.thePageTitleShouldContain(java.lang.String)">
+                <span>Then the page title should contain "Example"</span>
       <div>
-        <textarea disabled class="code-block">com.microsoft.playwright.PlaywrightException: Error {
-  message='Target page, context or browser has been closed
-  name='TargetClosedError
-  stack='TargetClosedError:Target page, context or browser has been closed
-Error
-    at captureRawStack (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\utils\stackTrace.js:50:17)
-    at LongStandingScope._race (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\utils\manualPromise.js:91:52)
-    at LongStandingScope.race (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\utils\manualPromise.js:84:17)
-    at FrameDispatcher._handleCommand (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\dispatchers\dispatcher.js:96:36)
-    at DispatcherConnection.dispatch (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\dispatchers\dispatcher.js:365:39)
-}
-Call log:
-- waiting for locator("#user-name")
-
-	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:54)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
-	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
-	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
-	at com.microsoft.playwright.impl.FrameImpl.fillImpl(FrameImpl.java:335)
-	at com.microsoft.playwright.impl.FrameImpl.lambda$fill$14(FrameImpl.java:325)
-	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
-	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
-	at com.microsoft.playwright.impl.FrameImpl.fill(FrameImpl.java:325)
-	at com.microsoft.playwright.impl.LocatorImpl.fill(LocatorImpl.java:226)
-	at com.microsoft.playwright.Locator.fill(Locator.java:2947)
-	at com.myautomation.pages.playwright.PlaywrightLoginPage.enterUsername(PlaywrightLoginPage.java:23)
-	at com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_enter_username_and_password_using_playwright(PlaywrightLoginSteps.java:31)
-	at ✽.I enter username "locked_out_user" and password "secret_sauce" using Playwright(file:///C:/Users/elumalayan/IdeaProjects/my-test-automation-intellijfinal/src/test/resources/features/playwright-login.feature:22)
-Caused by: com.microsoft.playwright.impl.TargetClosedError: Error {
-  message='Target page, context or browser has been closed
-  name='TargetClosedError
-  stack='TargetClosedError:Target page, context or browser has been closed
-Error
-    at captureRawStack (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\utils\stackTrace.js:50:17)
-    at LongStandingScope._race (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\utils\manualPromise.js:91:52)
-    at LongStandingScope.race (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\utils\manualPromise.js:84:17)
-    at FrameDispatcher._handleCommand (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\dispatchers\dispatcher.js:96:36)
-    at DispatcherConnection.dispatch (C:\Users\ELUMAL~1\AppData\Local\Temp\playwright-java-11254791564743673380\package\lib\server\dispatchers\dispatcher.js:365:39)
-}
-Call log:
-- waiting for locator("#user-name")
-
-	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:256)
-	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
-	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
-	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
-	at com.microsoft.playwright.impl.FrameImpl.fillImpl(FrameImpl.java:335)
-	at com.microsoft.playwright.impl.FrameImpl.lambda$fill$14(FrameImpl.java:325)
-	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
-	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
-	at com.microsoft.playwright.impl.FrameImpl.fill(FrameImpl.java:325)
-	at com.microsoft.playwright.impl.LocatorImpl.fill(LocatorImpl.java:226)
-	at com.microsoft.playwright.Locator.fill(Locator.java:2947)
-	at com.myautomation.pages.playwright.PlaywrightLoginPage.enterUsername(PlaywrightLoginPage.java:23)
-	at com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_enter_username_and_password_using_playwright(PlaywrightLoginSteps.java:31)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
-	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
-	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
-	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
-	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
-	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
-	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
-	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
-	at io.cucumber.core.runner.TestStep.run(TestStep.java:56)
-	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
-	at io.cucumber.core.runner.TestCase.run(TestCase.java:84)
-	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
-	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
-	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
-	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
-	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
-	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
-	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
-	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
-	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
-	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
-	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
-	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
-	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
-	at org.testng.junit.JUnit4TestRunner.start(JUnit4TestRunner.java:78)
-	at org.testng.junit.JUnit4TestRunner.run(JUnit4TestRunner.java:63)
-	at org.testng.TestRunner$1.run(TestRunner.java:708)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.testng.TestRunner.runJUnitWorkers(TestRunner.java:898)
-	at org.testng.TestRunner.privateRunJUnit(TestRunner.java:737)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
-	at org.testng.TestNG.runSuites(TestNG.java:1134)
-	at org.testng.TestNG.run(TestNG.java:1101)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-</textarea>
-      
       </div>
               </div>
-              <div class="step skip-bg" title="com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_click_the_login_button_using_playwright()">
-                <span>And I click the login button using Playwright</span>
-      <div>Step skipped
-      </div>
-              </div>
-              <div class="step skip-bg" title="com.myautomation.stepdefinitions.PlaywrightLoginSteps.i_should_see_an_error_message_using_playwright(java.lang.String)">
-                <span>Then I should see an error message "Epic sadface: Sorry, this user has been locked out." using Playwright</span>
-      <div>Step skipped
+              <div class="step pass-bg" title="AFTER">
+                <span>com.myautomation.hooks.ReportingHooks.afterScenario(io.cucumber.java.Scenario)</span>
+      <div>Screenshot
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='screenshots/embedded3.png' src="screenshots/embedded3.png">
+    
+    </div></div>
+</div>
+      <div>
       </div>
               </div>
           </div>
@@ -837,7 +1139,8 @@ Call log:
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log badge-danger'>3</span>
+<span class='badge log pass-bg'>1</span>
+<span class='badge log badge-danger'>2</span>
 </span>
 <p class="name">@playwright</p>
 <p class="duration text-sm">3 tests</p>
@@ -845,7 +1148,8 @@ Call log:
 <div class="test-contents d-none">
 <div class="info">
 <h4>@playwright</h4>
-<span status="fail" class='badge log badge-danger'>3 failed</span>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+<span status="fail" class='badge log badge-danger'>2 failed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -858,31 +1162,31 @@ Call log:
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>23:31:33 pm</td>
+<td>22:17:25 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>Successful login with valid credentials using Playwright</a>
+<a href="#" class="linked" test-id='3' id='4'>Search for a product on an e-commerce website</a>
 <div class="">
-<span class="badge badge-default">Login Functionality with Playwright.Successful login with valid credentials using Playwright</span>
+<span class="badge badge-default">Playwright Web Automation Sample.Search for a product on an e-commerce website</span>
 </div>
 </td>
 </tr>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>23:32:11 pm</td>
+<td>22:17:56 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='14'>Failed login with invalid credentials using Playwright</a>
+<a href="#" class="linked" test-id='3' id='19'>Verify page title and URL</a>
 <div class="">
-<span class="badge badge-default">Login Functionality with Playwright.Failed login with invalid credentials using Playwright</span>
+<span class="badge badge-default">Playwright Web Automation Sample.Verify page title and URL</span>
 </div>
 </td>
 </tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>23:32:32 pm</td>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>22:17:58 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='25'>Failed login with locked user using Playwright</a>
+<a href="#" class="linked" test-id='33' id='34'>Test screenshot display in report</a>
 <div class="">
-<span class="badge badge-default">Login Functionality with Playwright.Failed login with locked user using Playwright</span>
+<span class="badge badge-default">Screenshot Test.Test screenshot display in report</span>
 </div>
 </td>
 </tr>
@@ -909,15 +1213,15 @@ Call log:
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log badge-danger'>2</span>
+<span class='badge log badge-danger'>1</span>
 </span>
-<p class="name">com.microsoft.playwright.PlaywrightException</p>
-<p class="duration text-sm">2 tests</p>
+<p class="name">org.opentest4j.AssertionFailedError</p>
+<p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>com.microsoft.playwright.PlaywrightException</h4>
-<span status="fail" class='badge log badge-danger'>2 failed</span>
+<h4>org.opentest4j.AssertionFailedError</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -930,21 +1234,11 @@ Call log:
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>23:32:15 pm</td>
+<td>22:17:58 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='19'>When I enter username "invalid_user" and password "wrong_password" using Playwright</a>
+<a href="#" class="linked" test-id='3' id='27'>Then the page title should contain "Example"</a>
 <div class="">
-<span class="badge badge-default">Login Functionality with Playwright.Failed login with invalid credentials using Playwright.When I enter username "invalid_user" and password "wrong_password" using Playwright</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>23:32:35 pm</td>
-<td>
-<a href="#" class="linked" test-id='1' id='30'>When I enter username "locked_out_user" and password "secret_sauce" using Playwright</a>
-<div class="">
-<span class="badge badge-default">Login Functionality with Playwright.Failed login with locked user using Playwright.When I enter username "locked_out_user" and password "secret_sauce" using Playwright</span>
+<span class="badge badge-default">Playwright Web Automation Sample.Verify page title and URL.Then the page title should contain "Example"</span>
 </div>
 </td>
 </tr>
@@ -976,11 +1270,11 @@ Call log:
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>23:31:41 pm</td>
+<td>22:17:26 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='7'>When I enter username "standard_user" and password "secret_sauce" using Playwright</a>
+<a href="#" class="linked" test-id='3' id='11'>When I search for "laptop" in the search box</a>
 <div class="">
-<span class="badge badge-default">Login Functionality with Playwright.Successful login with valid credentials using Playwright.When I enter username "standard_user" and password "secret_sauce" using Playwright</span>
+<span class="badge badge-default">Playwright Web Automation Sample.Search for a product on an e-commerce website.When I search for "laptop" in the search box</span>
 </div>
 </td>
 </tr>

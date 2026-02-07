@@ -6,19 +6,17 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/features/playwright-login.feature"},
-        glue = {"com.myautomation.stepdefinitions", "com.myautomation.hooks"},
+        features = {"src/test/resources/features/playwright-sample.feature",
+                   "src/test/resources/features/screenshot-test.feature"},
+        glue = "com.myautomation",
         plugin = {
                 "pretty",
-                "html:test-output/playwright-cucumber-reports.html",
+                "html:test-output/playwright-cucumber-report.html",
                 "json:test-output/playwright-cucumber.json",
-                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-                "com.myautomation.adapters.CustomExtentCucumberAdapter:",
-                "parallel"
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
-        dryRun = false,
-        strict = true,
-        monochrome = true
+        monochrome = true,
+        tags = "@playwright"
 )
 public class PlaywrightTestRunner {
 }

@@ -67,5 +67,7 @@ public interface Session {
      */
     default void logInfo(String format, Object... args) {
         ErrorLogger.info("[Session: " + getId() + "] " + String.format(format, args));
+
+
     }
 }

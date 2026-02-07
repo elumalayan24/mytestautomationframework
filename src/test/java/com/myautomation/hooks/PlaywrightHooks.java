@@ -1,72 +1,48 @@
 package com.myautomation.hooks;
 
-import com.microsoft.playwright.Page;
-import com.myautomation.core.drivers.PlaywrightDriverManager;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
+import com.myautomation.utils.ScreenRecorderUtil;
+import com.myautomation.sessions.PlaywrightCucumberSession;
+import com.myautomation.sessions.PlaywrightSessionHolder;
 
-import static com.myautomation.utils.LogCaptureUtil.log;
+import io.cucumber.java.*;
 
 public class PlaywrightHooks {
-    private static boolean suiteInitialized = false;
 
-    @Before(order = 0, value = "@playwright")
-    public void beforeAll(Scenario scenario) {
-        if (!suiteInitialized) {
-            log("Starting Playwright test suite");
-            suiteInitialized = true;
-        }
-    }
-
-    @Before(order = 1, value = "@playwright")
+    @Before("@playwright")
     public void beforeScenario(Scenario scenario) {
-        log("Starting Playwright scenario: " + scenario.getName());
+        ScreenRecorderUtil.start(scenario.getName());
+        
+        // Create and set up session
+        PlaywrightCucumberSession session = new PlaywrightCucumberSession();
+        session.setUp();
+        PlaywrightSessionHolder.setSession(session);
     }
 
-    @After(value = "@playwright")
+    @After("@playwright")
     public void afterScenario(Scenario scenario) {
         try {
-            // Take screenshot on failure
-            if (scenario.isFailed()) {
-                Page page = PlaywrightDriverManager.getDriver();
-                if (page != null) {
-                    try {
-                        byte[] screenshot = page.screenshot(new Page.ScreenshotOptions()
-                                .setFullPage(true));
-                        String timestamp = String.valueOf(System.currentTimeMillis());
-                        String screenshotName = String.format("playwright_screenshot_failed_%s_%s.png",
-                                scenario.getName().replaceAll("\\s+", "_"),
-                                timestamp
-                        );
-                        scenario.attach(screenshot, "image/png", screenshotName);
-                        log("Attached Playwright screenshot for failed scenario");
-                    } catch (Exception e) {
-                        log("Failed to capture Playwright screenshot: " + e.getMessage());
-                    }
-                }
+            // Get session from holder
+            PlaywrightCucumberSession session = PlaywrightSessionHolder.getSession();
+            if (session != null) {
+                // Take screenshot for all Playwright scenarios
+                String timestamp = java.time.LocalDateTime.now()
+                        .format(java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+                String screenshotName = "playwright_" + scenario.getName() + "_" + timestamp;
+                
+                // Take screenshot using the session
+                session.takeScreenshot(screenshotName);
             }
-
+            
         } catch (Exception e) {
-            log("Error in Playwright afterScenario: " + e.getMessage());
+            System.err.println("Failed to take Playwright screenshot: " + e.getMessage());
         } finally {
-            // Clean up page and context after each scenario, but keep browser alive
-            PlaywrightDriverManager.closePage();
-            PlaywrightDriverManager.closeContext();
-        }
-    }
-
-    @After(order = 1000, value = "@playwright")
-    public void afterAll(Scenario scenario) {
-        try {
-            log("=== Final Playwright cleanup after all test scenarios ===");
-            
-            // Ensure any remaining Playwright instances are closed
-            PlaywrightDriverManager.unload();
-            
-            log("=== All Playwright cleanup completed ===");
-        } catch (Exception e) {
-            log("Error in Playwright afterAll cleanup: " + e.getMessage());
+            // Always cleanup
+            PlaywrightCucumberSession session = PlaywrightSessionHolder.getSession();
+            if (session != null) {
+                session.tearDown();
+            }
+            PlaywrightSessionHolder.clearSession();
+            ScreenRecorderUtil.stop(scenario.getName());
         }
     }
 }

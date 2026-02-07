@@ -1,6 +1,6 @@
 package com.myautomation.session;
 
-import com.myautomation.core.drivers.DriverManager;
+import com.myautomation.core.drivers.DriverFactory;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -26,7 +26,7 @@ public class SessionManager {
     public static void closeAll() {
         System.out.println("[SessionManager] Closing all sessions and cleaning up drivers...");
         getInstance().clearSessions();
-        DriverManager.forceKillAllBrowsers();
+        DriverFactory.unload();
     }
     
     /**
