@@ -37,21 +37,21 @@ public class PlaywrightSteps {
             if (searchBox.count() > 0) {
                 searchBox.fill(searchTerm);
                 searchBox.press("Enter");
-                System.out.println("✅ Search term '" + searchTerm + "' entered successfully");
+                System.out.println("Search term '" + searchTerm + "' entered");
             } else {
                 // Fallback: try to find any visible input element
                 Locator allInputs = page.locator("input:visible").first();
                 if (allInputs.count() > 0) {
                     allInputs.fill(searchTerm);
                     allInputs.press("Enter");
-                    System.out.println("✅ Search term '" + searchTerm + "' entered using fallback selector");
+                    System.out.println("Search term '" + searchTerm + "' entered using fallback selector");
                 } else {
                     throw new RuntimeException("No search input found on the page");
                 }
             }
             page.waitForLoadState(LoadState.NETWORKIDLE);
         } catch (Exception e) {
-            System.err.println("❌ Failed to enter search term: " + e.getMessage());
+            System.err.println("Failed to enter search term: " + e.getMessage());
             throw e;
         }
     }

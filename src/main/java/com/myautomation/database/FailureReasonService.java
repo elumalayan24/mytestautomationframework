@@ -38,7 +38,7 @@ public class FailureReasonService {
             pstmt.setString(12, engine);
             
             pstmt.executeUpdate();
-            System.out.println("🔴 Failure reason logged: " + failureType + " for " + scenarioName);
+            System.out.println("Failure reason logged: " + failureType + " for " + scenarioName);
             
         } catch (SQLException e) {
             System.err.println("Failed to log failure reason: " + e.getMessage());
@@ -103,7 +103,7 @@ public class FailureReasonService {
             pstmt.setString(1, testSuiteId);
             ResultSet rs = pstmt.executeQuery();
             
-            System.out.println("\n🔴 FAILURE ANALYSIS FOR: " + testSuiteId);
+            System.out.println("\nFAILURE ANALYSIS FOR: " + testSuiteId);
             System.out.println("=" .repeat(60));
             
             while (rs.next()) {
@@ -135,7 +135,7 @@ public class FailureReasonService {
             pstmt.setInt(1, limit);
             ResultSet rs = pstmt.executeQuery();
             
-            System.out.println("\n🔴 TOP " + limit + " FAILURE REASONS");
+            System.out.println("\nTOP " + limit + " FAILURE REASONS");
             System.out.println("=" .repeat(80));
             System.out.printf("%-20s %-10s %-15s %-15s%n", 
                 "Failure Type", "Total", "Suites", "Scenarios");

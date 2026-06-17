@@ -4,6 +4,6 @@ public class SessionBootstrap {
 
     static {
         String suiteId = TestSuiteIdGenerator.getTestSuiteId();
-        System.out.println("🚀 Test Suite Started: " + suiteId);
+        System.out.println("Test Suite Started: " + suiteId);
     }
 }

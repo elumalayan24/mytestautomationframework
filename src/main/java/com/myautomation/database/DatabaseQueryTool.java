@@ -10,9 +10,9 @@ public class DatabaseQueryTool {
         // Load PostgreSQL driver
         try {
             Class.forName("org.postgresql.Driver");
-            System.out.println("✅ PostgreSQL driver loaded");
+            System.out.println("PostgreSQL driver loaded");
         } catch (ClassNotFoundException e) {
-            System.err.println("❌ PostgreSQL driver not found: " + e.getMessage());
+            System.err.println("PostgreSQL driver not found: " + e.getMessage());
             return;
         }
         
@@ -22,7 +22,7 @@ public class DatabaseQueryTool {
         String password = "admin";
         
         try (Connection conn = DriverManager.getConnection(url, username, password)) {
-            System.out.println("✅ Connected to PostgreSQL database\n");
+            System.out.println("Connected to PostgreSQL database\n");
             
             // Show table structure
             showTableStructure(conn);
@@ -40,21 +40,21 @@ public class DatabaseQueryTool {
             queryFailureReasons(conn);
             
         } catch (SQLException e) {
-            System.err.println("❌ Database error: " + e.getMessage());
+            System.err.println("Database error: " + e.getMessage());
             System.err.println("SQL State: " + e.getSQLState());
             
             if (e.getMessage().contains("Connection refused")) {
-                System.err.println("💡 Make sure PostgreSQL is running on localhost:5432");
+                System.err.println("Make sure PostgreSQL is running on localhost:5432");
             } else if (e.getMessage().contains("password")) {
-                System.err.println("💡 Check PostgreSQL password - current: '" + password + "'");
+                System.err.println("Check PostgreSQL password - current: '" + password + "'");
             } else if (e.getMessage().contains("database") && e.getMessage().contains("does not exist")) {
-                System.err.println("💡 Create database: CREATE DATABASE test_automation;");
+                System.err.println("Create database: CREATE DATABASE test_automation;");
             }
         }
     }
     
     private static void showTableStructure(Connection conn) {
-        System.out.println("📊 DATABASE TABLES:");
+        System.out.println("DATABASE TABLES:");
         System.out.println("=" .repeat(60));
         
         String[] tables = {"test_suites", "test_scenarios", "test_logs", "test_failure_reasons"};
@@ -64,7 +64,7 @@ public class DatabaseQueryTool {
                  ResultSet rs = stmt.executeQuery("SELECT COUNT(*) as count FROM " + table)) {
                 
                 rs.next();
-                System.out.println("📋 " + table + ": " + rs.getInt("count") + " records");
+                System.out.println(table + ": " + rs.getInt("count") + " records");
                 
             } catch (SQLException e) {
                 System.err.println("   Error checking " + table + ": " + e.getMessage());
@@ -74,7 +74,7 @@ public class DatabaseQueryTool {
     }
     
     private static void queryTestSuites(Connection conn) {
-        System.out.println("🏁 TEST SUITES:");
+        System.out.println("TEST SUITES:");
         System.out.println("=" .repeat(60));
         
         String sql = """
@@ -92,7 +92,7 @@ public class DatabaseQueryTool {
                 System.out.println("No test suites found");
             } else {
                 while (rs.next()) {
-                    System.out.println("🔸 Suite: " + rs.getString("test_suite_id"));
+                    System.out.println("Suite: " + rs.getString("test_suite_id"));
                     System.out.println("   Engine: " + rs.getString("engine"));
                     System.out.println("   Status: " + rs.getString("status"));
                     System.out.println("   Start: " + rs.getTimestamp("start_time"));
@@ -112,7 +112,7 @@ public class DatabaseQueryTool {
     }
     
     private static void queryScenarios(Connection conn) {
-        System.out.println("📋 SCENARIOS:");
+        System.out.println("SCENARIOS:");
         System.out.println("=" .repeat(60));
         
         String sql = """
@@ -130,7 +130,7 @@ public class DatabaseQueryTool {
                 System.out.println("No scenarios found");
             } else {
                 while (rs.next()) {
-                    System.out.println("🔸 " + rs.getString("scenario_name"));
+                    System.out.println(rs.getString("scenario_name"));
                     System.out.println("   Suite: " + rs.getString("test_suite_id"));
                     System.out.println("   Engine: " + rs.getString("engine"));
                     System.out.println("   Status: " + rs.getString("status"));
@@ -148,7 +148,7 @@ public class DatabaseQueryTool {
     }
     
     private static void queryLogs(Connection conn) {
-        System.out.println("📝 LOGS:");
+        System.out.println("LOGS:");
         System.out.println("=" .repeat(60));
         
         String sql = """
@@ -165,7 +165,7 @@ public class DatabaseQueryTool {
                 System.out.println("No logs found");
             } else {
                 while (rs.next()) {
-                    System.out.println("🔸 [" + rs.getTimestamp("timestamp") + "] " + 
+                    System.out.println("[" + rs.getTimestamp("timestamp") + "] " + 
                                      rs.getString("log_level").toUpperCase() + 
                                      " - " + rs.getString("message"));
                     System.out.println("   Suite: " + rs.getString("test_suite_id"));
@@ -180,7 +180,7 @@ public class DatabaseQueryTool {
     }
     
     private static void queryFailureReasons(Connection conn) {
-        System.out.println("🔴 FAILURE REASONS:");
+        System.out.println("FAILURE REASONS:");
         System.out.println("=" .repeat(60));
         
         // Get top failure types
@@ -200,7 +200,7 @@ public class DatabaseQueryTool {
                 System.out.println("No failure reasons found (all tests passed!)");
             } else {
                 while (rs.next()) {
-                    System.out.println("🔸 " + rs.getString("failure_type") + ": " + rs.getInt("count") + " occurrences");
+                    System.out.println(rs.getString("failure_type") + ": " + rs.getInt("count") + " occurrences");
                     System.out.println("   Scenarios: " + rs.getString("affected_scenarios"));
                     System.out.println();
                 }
@@ -218,7 +218,7 @@ public class DatabaseQueryTool {
             LIMIT 5
         """;
         
-        System.out.println("📋 RECENT FAILURES:");
+        System.out.println("RECENT FAILURES:");
         System.out.println("-".repeat(40));
         
         try (Statement stmt = conn.createStatement();
@@ -228,7 +228,7 @@ public class DatabaseQueryTool {
                 System.out.println("No recent failures found");
             } else {
                 while (rs.next()) {
-                    System.out.println("🔸 " + rs.getString("scenario_name"));
+                    System.out.println(rs.getString("scenario_name"));
                     System.out.println("   Type: " + rs.getString("failure_type"));
                     System.out.println("   Engine: " + rs.getString("engine"));
                     System.out.println("   Time: " + rs.getTimestamp("timestamp"));

@@ -15,7 +15,7 @@ public class SimpleDatabaseQuery {
         String password = "admin";
         
         try (Connection conn = DriverManager.getConnection(url, username, password)) {
-            System.out.println("✅ Database connected successfully\n");
+            System.out.println("Database connected successfully\n");
             
             // Query recent test suites
             queryRecentTestSuites(conn);
@@ -27,15 +27,15 @@ public class SimpleDatabaseQuery {
             queryRecentLogs(conn);
             
         } catch (SQLException e) {
-            System.err.println("❌ Error connecting to database: " + e.getMessage());
+            System.err.println("Error connecting to database: " + e.getMessage());
             if (e.getMessage().contains("password")) {
-                System.err.println("💡 Check your PostgreSQL password in database.properties");
+                System.err.println("Check your PostgreSQL password in database.properties");
             }
         }
     }
     
     private static void queryRecentTestSuites(Connection conn) {
-        System.out.println("📊 RECENT TEST SUITES:");
+        System.out.println("RECENT TEST SUITES:");
         System.out.println("=" .repeat(80));
         
         String sql = """
@@ -52,7 +52,7 @@ public class SimpleDatabaseQuery {
             boolean found = false;
             while (rs.next()) {
                 found = true;
-                System.out.println("🔹 Test Suite ID: " + rs.getString("test_suite_id"));
+                System.out.println("Test Suite ID: " + rs.getString("test_suite_id"));
                 System.out.println("   Engine: " + rs.getString("engine"));
                 System.out.println("   Start Time: " + rs.getTimestamp("start_time"));
                 System.out.println("   End Time: " + rs.getTimestamp("end_time"));
@@ -76,7 +76,7 @@ public class SimpleDatabaseQuery {
     }
     
     private static void queryRecentScenarios(Connection conn) {
-        System.out.println("📋 RECENT SCENARIOS:");
+        System.out.println("RECENT SCENARIOS:");
         System.out.println("=" .repeat(80));
         
         String sql = """
@@ -93,7 +93,7 @@ public class SimpleDatabaseQuery {
             boolean found = false;
             while (rs.next()) {
                 found = true;
-                System.out.println("🔹 Scenario: " + rs.getString("scenario_name"));
+                System.out.println("Scenario: " + rs.getString("scenario_name"));
                 System.out.println("   Test Suite: " + rs.getString("test_suite_id"));
                 System.out.println("   Engine: " + rs.getString("engine"));
                 System.out.println("   Feature: " + rs.getString("feature_file"));
@@ -121,7 +121,7 @@ public class SimpleDatabaseQuery {
     }
     
     private static void queryRecentLogs(Connection conn) {
-        System.out.println("📝 RECENT LOGS:");
+        System.out.println("RECENT LOGS:");
         System.out.println("=" .repeat(80));
         
         String sql = """
@@ -137,7 +137,7 @@ public class SimpleDatabaseQuery {
             boolean found = false;
             while (rs.next()) {
                 found = true;
-                System.out.println("🔹 [" + rs.getTimestamp("timestamp") + "] " + 
+                System.out.println("[" + rs.getTimestamp("timestamp") + "] " + 
                                  rs.getString("log_level").toUpperCase() + 
                                  " - " + rs.getString("message"));
                 System.out.println("   Test Suite: " + rs.getString("test_suite_id"));
