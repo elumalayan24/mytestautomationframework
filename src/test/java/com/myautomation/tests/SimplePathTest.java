@@ -40,7 +40,7 @@ public class SimplePathTest {
             test.pass("Relative path test").addScreenCaptureFromPath(relativePath);
             
             extent.flush();
-            System.out.println("✅ Report generated. Check test-output/path-test-report.html");
+            System.out.println("Report generated. Check test-output/path-test-report.html");
             
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());

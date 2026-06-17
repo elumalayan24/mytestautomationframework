@@ -59,7 +59,7 @@ public class ReportingHooks {
                         try {
                             byte[] screenshotData = java.nio.file.Files.readAllBytes(java.nio.file.Paths.get(screenshotPath));
                             scenario.attach(screenshotData, "image/png", "Screenshot");
-                            System.out.println("📸 Screenshot embedded in Cucumber report: " + screenshotPath);
+                            System.out.println("Screenshot embedded in Cucumber report: " + screenshotPath);
                             
                             // Log screenshot to database
                             DatabaseService.logInfo("Screenshot Captured", 
@@ -76,7 +76,7 @@ public class ReportingHooks {
                             test.pass("Scenario Passed")
                                     .addScreenCaptureFromPath(screenshotPath);
                         }
-                        System.out.println("📸 Playwright screenshot attached to ExtentReports: " + screenshotPath);
+                        System.out.println("Playwright screenshot attached to ExtentReports: " + screenshotPath);
                     } else {
                         if (scenario.isFailed()) {
                             test.fail("Scenario Failed");
@@ -102,7 +102,7 @@ public class ReportingHooks {
                             try {
                                 byte[] screenshotData = java.nio.file.Files.readAllBytes(java.nio.file.Paths.get(absolutePath));
                                 scenario.attach(screenshotData, "image/png", "Screenshot");
-                                System.out.println("📸 Selenium screenshot embedded in Cucumber report: " + absolutePath);
+                                System.out.println("Selenium screenshot embedded in Cucumber report: " + absolutePath);
                             } catch (Exception e) {
                                 System.err.println("Failed to embed Selenium screenshot in Cucumber report: " + e.getMessage());
                             }
@@ -115,7 +115,7 @@ public class ReportingHooks {
                                 test.pass("Scenario Passed")
                                         .addScreenCaptureFromPath(absolutePath);
                             }
-                            System.out.println("📸 Selenium screenshot attached to ExtentReports: " + absolutePath);
+                            System.out.println("Selenium screenshot attached to ExtentReports: " + absolutePath);
                         } else {
                             if (scenario.isFailed()) {
                                 test.fail("Scenario Failed");
@@ -143,7 +143,7 @@ public class ReportingHooks {
                                 
                                 // Add screenshot to Cucumber HTML report
                                 scenario.attach(screenshotData, "image/png", "Mobile Screenshot");
-                                System.out.println("📸 Mobile screenshot embedded in Cucumber report: " + absolutePath);
+                                System.out.println("Mobile screenshot embedded in Cucumber report: " + absolutePath);
                                 
                                 // Log screenshot to database
                                 DatabaseService.logInfo("Screenshot Captured", 
@@ -157,7 +157,7 @@ public class ReportingHooks {
                                     test.pass("Scenario Passed")
                                             .addScreenCaptureFromPath(absolutePath);
                                 }
-                                System.out.println("📸 Mobile screenshot attached to ExtentReports: " + absolutePath);
+                                System.out.println("Mobile screenshot attached to ExtentReports: " + absolutePath);
                             } catch (Exception e) {
                                 System.err.println("Failed to take mobile screenshot: " + e.getMessage());
                                 if (scenario.isFailed()) {
@@ -229,7 +229,7 @@ public class ReportingHooks {
                 engine
             );
             
-            System.out.println("🔴 Failure logged to database: " + failureType + " for " + scenario.getName());
+            System.out.println("Failure logged to database: " + failureType + " for " + scenario.getName());
             
         } catch (Exception e) {
             System.err.println("Failed to log test failure: " + e.getMessage());

@@ -12,11 +12,11 @@ public class DatabaseQuery {
         try {
             // Test database connection
             if (!DatabaseConfig.isDatabaseAvailable()) {
-                System.out.println("❌ Database is not available");
+                System.out.println("Database is not available");
                 return;
             }
             
-            System.out.println("✅ Database connected successfully\n");
+            System.out.println("Database connected successfully\n");
             
             // Query recent test suites
             queryRecentTestSuites();
@@ -33,7 +33,7 @@ public class DatabaseQuery {
     }
     
     private static void queryRecentTestSuites() {
-        System.out.println("📊 RECENT TEST SUITES:");
+        System.out.println("RECENT TEST SUITES:");
         System.out.println("=" .repeat(80));
         
         String sql = """
@@ -69,7 +69,7 @@ public class DatabaseQuery {
     }
     
     private static void queryRecentScenarios() {
-        System.out.println("📋 RECENT SCENARIOS:");
+        System.out.println("RECENT SCENARIOS:");
         System.out.println("=" .repeat(80));
         
         String sql = """
@@ -109,7 +109,7 @@ public class DatabaseQuery {
     }
     
     private static void queryRecentLogs() {
-        System.out.println("📝 RECENT LOGS:");
+        System.out.println("RECENT LOGS:");
         System.out.println("=" .repeat(80));
         
         String sql = """

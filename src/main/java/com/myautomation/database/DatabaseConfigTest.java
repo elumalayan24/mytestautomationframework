@@ -18,9 +18,9 @@ public class DatabaseConfigTest {
             System.out.println("Database Available: " + isAvailable);
             
             if (isAvailable) {
-                System.out.println("✅ Database connection successful!");
+                System.out.println("Database connection successful!");
             } else {
-                System.out.println("❌ Database connection failed - check PostgreSQL setup");
+                System.out.println("Database connection failed - check PostgreSQL setup");
             }
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());

@@ -47,7 +47,7 @@ public class PlaywrightCucumberSession {
                 // Create necessary directories
                 java.nio.file.Files.createDirectories(Paths.get(SCREENSHOT_DIR));
                 
-                System.out.println("✓ Browser session initialized");
+                System.out.println("Browser session initialized");
             }
             
             // Auto-detect system configuration
@@ -77,7 +77,7 @@ public class PlaywrightCucumberSession {
             page.setDefaultTimeout(30000);
             page.setDefaultNavigationTimeout(60000);
             
-            System.out.println("✓ Test session started");
+            System.out.println("Test session started");
         } catch (Exception e) {
             System.err.println("Failed to setup test session: " + e.getMessage());
             throw new RuntimeException("Test setup failed", e);
@@ -99,7 +99,7 @@ public class PlaywrightCucumberSession {
                 context = null;
             }
             
-            System.out.println("✓ Test session cleaned");
+            System.out.println("Test session cleaned");
         } catch (Exception e) {
             System.err.println("Error during test cleanup: " + e.getMessage());
         }
@@ -118,7 +118,7 @@ public class PlaywrightCucumberSession {
                 playwright.close();
                 playwright = null;
             }
-            System.out.println("✓ Browser session terminated");
+            System.out.println("Browser session terminated");
         } catch (Exception e) {
             System.err.println("Error during class cleanup: " + e.getMessage());
         }

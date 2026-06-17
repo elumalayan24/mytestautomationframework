@@ -38,7 +38,7 @@ public class PlaywrightTestSession {
             java.nio.file.Files.createDirectories(Paths.get(TRACING_DIR));
             java.nio.file.Files.createDirectories(Paths.get(SCREENSHOT_DIR));
             
-            System.out.println("✓ Browser session initialized");
+            System.out.println("Browser session initialized");
         } catch (Exception e) {
             System.err.println("Failed to initialize browser session: " + e.getMessage());
             throw new RuntimeException("Browser setup failed", e);
@@ -86,7 +86,7 @@ public class PlaywrightTestSession {
             page.setDefaultTimeout(30000);
             page.setDefaultNavigationTimeout(60000);
             
-            System.out.println("✓ Test session started: " + testName);
+            System.out.println("Test session started: " + testName);
         } catch (Exception e) {
             System.err.println("Failed to setup test session: " + e.getMessage());
             throw new RuntimeException("Test setup failed", e);
@@ -119,7 +119,7 @@ public class PlaywrightTestSession {
                 context = null;
             }
             
-            System.out.println("✓ Test session cleaned: " + testName);
+            System.out.println("Test session cleaned: " + testName);
         } catch (Exception e) {
             System.err.println("Error during test cleanup: " + e.getMessage());
         }
@@ -136,7 +136,7 @@ public class PlaywrightTestSession {
                 playwright.close();
                 playwright = null;
             }
-            System.out.println("✓ Browser session terminated");
+            System.out.println("Browser session terminated");
         } catch (Exception e) {
             System.err.println("Error during class cleanup: " + e.getMessage());
         }

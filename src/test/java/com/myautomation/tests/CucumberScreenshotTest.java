@@ -36,14 +36,14 @@ public class CucumberScreenshotTest {
         try {
             // 3. Execute test steps
             session.navigateTo("https://www.example.com");
-            System.out.println("✅ Navigated to example.com");
+            System.out.println("Navigated to example.com");
             
             // 4. Take screenshot (like PlaywrightHooks @After)
             String timestamp = java.time.LocalDateTime.now()
                     .format(java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
             String screenshotName = "cucumber_test_" + timestamp;
             session.takeScreenshot(screenshotName);
-            System.out.println("✅ Screenshot taken: " + screenshotName);
+            System.out.println("Screenshot taken: " + screenshotName);
             
             // 5. Simulate ReportingHooks @After logic
             String screenshotPath = findLatestPlaywrightScreenshot("Test Cucumber Screenshot Display");
@@ -52,15 +52,15 @@ public class CucumberScreenshotTest {
             if (screenshotPath != null) {
                 test.pass("Scenario Passed")
                         .addScreenCaptureFromPath(screenshotPath);
-                System.out.println("✅ Screenshot attached to report: " + screenshotPath);
+                System.out.println("Screenshot attached to report: " + screenshotPath);
             } else {
                 test.pass("Scenario Passed");
-                System.out.println("❌ No screenshot found to attach");
+                System.out.println("No screenshot found to attach");
             }
             
         } catch (Exception e) {
             test.fail("Scenario Failed: " + e.getMessage());
-            System.err.println("❌ Test failed: " + e.getMessage());
+            System.err.println("Test failed: " + e.getMessage());
         } finally {
             // 6. Cleanup (like hooks @After)
             if (session != null) {
@@ -69,7 +69,7 @@ public class CucumberScreenshotTest {
             PlaywrightSessionHolder.clearSession();
             ExtentTestManager.unload();
             extent.flush();
-            System.out.println("✅ Report generated successfully");
+            System.out.println("Report generated successfully");
         }
     }
     

@@ -31,7 +31,7 @@ public class ScreenshotPathTest {
         // Verify screenshot file exists
         File screenshotFile = new File("test-output/screenshots/screenshot_path_test_20260207_184900.png");
         if (screenshotFile.exists()) {
-            System.out.println("✅ Screenshot created at: " + screenshotFile.getAbsolutePath());
+            System.out.println("Screenshot created at: " + screenshotFile.getAbsolutePath());
             
             // Test ExtentReports with relative path
             ExtentSparkReporter spark = new ExtentSparkReporter("test-output/screenshot-test-report.html");
@@ -43,9 +43,9 @@ public class ScreenshotPathTest {
             test.pass("Screenshot test").addScreenCaptureFromPath(relativePath);
             
             extent.flush();
-            System.out.println("✅ Report generated with relative path: " + relativePath);
+            System.out.println("Report generated with relative path: " + relativePath);
         } else {
-            System.err.println("❌ Screenshot file not found!");
+            System.err.println("Screenshot file not found!");
         }
     }
 

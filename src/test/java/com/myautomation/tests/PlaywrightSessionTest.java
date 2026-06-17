@@ -23,7 +23,7 @@ public class PlaywrightSessionTest extends BasePlaywrightTest {
         String title = page.title();
         assertTrue(title.contains("Example"), "Page title should contain 'Example'");
         
-        System.out.println("✓ Basic navigation test passed");
+        System.out.println("Basic navigation test passed");
     }
 
     @Test
@@ -43,7 +43,7 @@ public class PlaywrightSessionTest extends BasePlaywrightTest {
         // Take screenshot for documentation
         takeScreenshot("page_content_verification");
         
-        System.out.println("✓ Page content verification passed");
+        System.out.println("Page content verification passed");
     }
 
     @Test
@@ -63,7 +63,7 @@ public class PlaywrightSessionTest extends BasePlaywrightTest {
         assertNotNull(title, "Page title should not be null");
         assertFalse(title.isEmpty(), "Page title should not be empty");
         
-        System.out.println("✓ URL and title validation passed");
+        System.out.println("URL and title validation passed");
     }
 
     @Test
@@ -87,7 +87,7 @@ public class PlaywrightSessionTest extends BasePlaywrightTest {
         // Take screenshot after interaction
         takeScreenshot("element_interaction");
         
-        System.out.println("✓ Element interaction test passed");
+        System.out.println("Element interaction test passed");
     }
 
     @Test
@@ -107,6 +107,6 @@ public class PlaywrightSessionTest extends BasePlaywrightTest {
         // Screenshot for session documentation
         takeScreenshot("browser_session_info");
         
-        System.out.println("✓ Browser session info test passed");
+        System.out.println("Browser session info test passed");
     }
 }
